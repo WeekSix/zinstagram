@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "993913750410",
+    "project_id": "zinstagram-79519",
+    "storage_bucket": "zinstagram-79519.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:993913750410:android:292e4defc22faa66717e73",
+        "android_client_info": {
+          "package_name": "com.example.zinstagram"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "993913750410-4qvn0oe9kff5r6h5sbl57m12vghij7hq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUUjn1AaQul2LZrNNiZjm1BL9K2IMCzTE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "993913750410-4qvn0oe9kff5r6h5sbl57m12vghij7hq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
