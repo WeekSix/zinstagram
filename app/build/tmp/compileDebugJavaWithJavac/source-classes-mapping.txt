@@ -1,11 +1,3 @@
-com/example/zinstagram/user.java
- com.example.zinstagram.user
-com/example/zinstagram/ProfileActivity.java
- com.example.zinstagram.ProfileActivity
- com.example.zinstagram.ProfileActivity$1
- com.example.zinstagram.ProfileActivity$2
-com/example/zinstagram/BuildConfig.java
- com.example.zinstagram.BuildConfig
 com/example/zinstagram/SignInActivity.java
  com.example.zinstagram.SignInActivity
 com/example/zinstagram/Registration.java
@@ -14,3 +6,13 @@ com/example/zinstagram/Registration.java
  com.example.zinstagram.Registration$2
  com.example.zinstagram.Registration$3
  com.example.zinstagram.Registration$4
+ com.example.zinstagram.Registration$5
+com/example/zinstagram/BuildConfig.java
+ com.example.zinstagram.BuildConfig
+com/example/zinstagram/ProfileActivity.java
+ com.example.zinstagram.ProfileActivity
+ com.example.zinstagram.ProfileActivity$1
+ com.example.zinstagram.ProfileActivity$2
+ com.example.zinstagram.ProfileActivity$3
+com/example/zinstagram/user.java
+ com.example.zinstagram.user

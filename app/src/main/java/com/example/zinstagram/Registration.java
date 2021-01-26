@@ -29,12 +29,15 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Pattern;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -52,6 +55,7 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
     private Uri uri;
 
     private FirebaseAuth mAuth;
+    //private FirebaseFirestore mFireStore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -156,21 +160,35 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
 
                     if(task.isSuccessful()) {
                         user user = new user(userName, email, bio); //create new object for new user
+                        Map<String, Object> hashUser = new HashMap<>();
+                        hashUser.put("userName", user.userName);
+                        hashUser.put("email", user.email);
+                        hashUser.put("bio", user.bio);
 
                         //FirebaseDatabase database = FirebaseDatabase.getInstance(); //get Firebase database
 
                         //Store users value into its database object
-                        FirebaseDatabase.getInstance().getReference("Users")
-                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                .setValue(user).addOnCompleteListener(task1 -> {
-                                    // Prompt message to tell user whether registration is successful or not.
-                                    if (task1.isSuccessful()) {
-                                        Toast.makeText(Registration.this, "User registered successful!", Toast.LENGTH_LONG).show();
-                                        startActivity(new Intent(this, SignInActivity.class));
-                                    } else {
-                                        Toast.makeText(Registration.this, "Username already exist. Please try again.", Toast.LENGTH_LONG).show();
+                        FirebaseFirestore.getInstance().collection("users")
+                                .document(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                .set(hashUser)
+                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if (task.isSuccessful()) {
+                                            // Prompt message to tell user whether registration is successful or not.
+                                            mAuth.getCurrentUser().sendEmailVerification();
+                                            Toast.makeText(Registration.this, "User registered successful! Verification sent to your email", Toast.LENGTH_LONG).show();
+                                            try {
+                                                Thread.sleep(500);
+                                            } catch (InterruptedException e) {
+                                                e.printStackTrace();
+                                            }
+                                            startActivity(new Intent(Registration.this, SignInActivity.class));
+                                        } else {
+                                            Toast.makeText(Registration.this, "Username already exist. Please try again.", Toast.LENGTH_LONG).show();
+                                        }
+                                        progressBar.setVisibility(View.GONE);
                                     }
-                                    progressBar.setVisibility(View.GONE);
                                 });
                     } else {
                         Toast.makeText(Registration.this, "Failed to register. Please try again Later", Toast.LENGTH_LONG).show();
