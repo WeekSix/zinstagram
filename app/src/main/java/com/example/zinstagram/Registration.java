@@ -3,6 +3,7 @@ package com.example.zinstagram;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -46,13 +47,14 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
 
     private static final String TAG = "RegistrationActivity";
 
-    private Button signIn, registration;
+    private Button signIn, registration, photoUpload;
     private EditText editTextUserName, editTextEmail, editTextPassword, editTextConfirmPassword, editTextBio;
     private ProgressBar progressBar;
 
     private CircleImageView profilePhoto;
     private int TAKE_IMAGE_CODE = 10001;
     private Uri uri;
+    private Bitmap bitmap;
 
     private FirebaseAuth mAuth;
     //private FirebaseFirestore mFireStore;
@@ -69,6 +71,9 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
 
         registration = (Button) findViewById(R.id.register);
         registration.setOnClickListener(this);
+
+        photoUpload = (Button) findViewById(R.id.photoUpload);
+        photoUpload.setOnClickListener(this);
 
         profilePhoto = (CircleImageView) findViewById(R.id.profilePhoto);
         editTextUserName = (EditText) findViewById(R.id.userName);
@@ -89,6 +94,10 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(this, SignInActivity.class));
                 break;
                 // register new user method
+            case R.id.photoUpload:
+                uploadPhoto();
+                break;
+
             case R.id.register:
                 registration();
                 break;
@@ -152,6 +161,8 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
             return;
         }
 
+
+
         progressBar.setVisibility(View.VISIBLE);
 
         //Upload info to firebase
@@ -183,7 +194,8 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
                                             } catch (InterruptedException e) {
                                                 e.printStackTrace();
                                             }
-                                            startActivity(new Intent(Registration.this, SignInActivity.class));
+
+                                            startActivity(new Intent(Registration.this, ProfileActivity.class).putExtra("bitmap",bitmap));
                                         } else {
                                             Toast.makeText(Registration.this, "Username already exist. Please try again.", Toast.LENGTH_LONG).show();
                                         }
@@ -198,7 +210,7 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
     }
 
     // Open camera and capture image
-    public void uploadPhoto(View view) {
+    public void uploadPhoto() {
         Intent photoIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (photoIntent.resolveActivity(getPackageManager()) != null) {
             startActivityForResult(photoIntent, TAKE_IMAGE_CODE);
@@ -212,7 +224,7 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
         if (requestCode == TAKE_IMAGE_CODE) {
             switch (resultCode) {
                 case RESULT_OK:
-                    Bitmap bitmap = (Bitmap) data.getExtras().get("data");
+                    bitmap = (Bitmap) data.getExtras().get("data");
                     profilePhoto.setImageBitmap(bitmap);
                     handleUploadPhoto(bitmap);
             }
@@ -224,10 +236,11 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
         ByteArrayOutputStream thumbnail = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, thumbnail);
 
+
+        //save photo in the path
         if (mAuth.getCurrentUser() != null) {
-            String userID = mAuth.getCurrentUser().getUid();
             StorageReference reference = FirebaseStorage.getInstance().getReference()
-                    .child("pics/" + userID)
+                    .child("pics/" + FirebaseAuth.getInstance().getCurrentUser().getUid())
                     .child("profile.jpeg");
 
         reference.putBytes(thumbnail.toByteArray())

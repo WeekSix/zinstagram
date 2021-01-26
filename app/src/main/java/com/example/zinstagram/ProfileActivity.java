@@ -2,11 +2,14 @@ package com.example.zinstagram;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.health.UidHealthStats;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -60,11 +63,13 @@ public class ProfileActivity extends AppCompatActivity {
         user = FirebaseAuth.getInstance().getCurrentUser();
         reference = FirebaseFirestore.getInstance().collection("users");
         userID = user.getUid();
-        photoReference = FirebaseStorage.getInstance().getReference(".pics/profilePhotos" + userID + ".jpeg");
+        //photoReference = FirebaseStorage.getInstance().getReference("pics/" + FirebaseAuth.getInstance().getCurrentUser().getUid() + "profile.jpeg");
+
 
         
         final TextView userNameTextView = (TextView) findViewById(R.id.userName);
         final TextView bioTextView = (TextView) findViewById(R.id.bio);
+        final TextView UID = (TextView) findViewById(R.id.UID);
         final CircleImageView profilePhoto = (CircleImageView) findViewById(R.id.profilePhoto);
 
 
@@ -79,10 +84,16 @@ public class ProfileActivity extends AppCompatActivity {
                 if (userProfile != null) {
                     String userName = userProfile.userName;
                     String bio = userProfile.bio;
+//                    photoReference = FirebaseStorage.getInstance().getReference("gs://zinstagram-79519.appspot.com/pics/ebhKqyYbeCT5bW9Y6JqqYKm6ch93/profile.jpeg");
+//
+//                    Glide.with(ProfileActivity.this)
+//                            .load(photoReference)
+//                            .into(profilePhoto);
 
-                    Glide.with(ProfileActivity.this)
-                            .load(photoReference)
-                            .into(profilePhoto);
+                    if(getIntent().hasExtra("bitmap")) {
+                        Bitmap bitmap = getIntent().getParcelableExtra("bitmap");
+                        profilePhoto.setImageBitmap(bitmap);
+                    }
 
                     userNameTextView.setText(userName);
                     bioTextView.setText(bio);
@@ -90,7 +101,16 @@ public class ProfileActivity extends AppCompatActivity {
                 }
             }
 
-//            private Uri getThumbnailUrl(DatabaseReference reference) {
+        })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(ProfileActivity.this, "Failed to acquire user's information", Toast.LENGTH_LONG).show();
+                    }
+                });
+    }
+
+    //            private Uri getThumbnailUrl(DatabaseReference reference) {
 //                photoReference.getDownloadUrl()
 //                        .addOnSuccessListener(new OnSuccessListener<Uri>() {
 //                            @Override
@@ -106,14 +126,4 @@ public class ProfileActivity extends AppCompatActivity {
 //                            }
 //                        })
 //            }
-        })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(ProfileActivity.this, "Failed to acquire user's information", Toast.LENGTH_LONG).show();
-                    }
-                });
-
-
-    }
 }

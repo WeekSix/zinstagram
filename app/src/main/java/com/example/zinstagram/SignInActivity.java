@@ -54,6 +54,12 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
 
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
+
+        if(mAuth.getCurrentUser()!=null){
+            startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+        }else{
+            //Sign In Pate
+        }
     }
 
     @Override
@@ -94,6 +100,10 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         }
 
         progressBar.setVisibility(View.VISIBLE);
+
+        if (mAuth.getCurrentUser() == null) {
+            Toast.makeText(SignInActivity.this, "User does not exist", Toast.LENGTH_LONG).show();
+        }
 
         //Pass user email and password to Firebase and sign in
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
