@@ -1,30 +1,6 @@
-com/example/zinstagram/ui/login/LoginFormState.java
- com.example.zinstagram.ui.login.LoginFormState
-com/example/zinstagram/ui/login/LoginActivity.java
- com.example.zinstagram.ui.login.LoginActivity
- com.example.zinstagram.ui.login.LoginActivity$1
- com.example.zinstagram.ui.login.LoginActivity$2
- com.example.zinstagram.ui.login.LoginActivity$3
- com.example.zinstagram.ui.login.LoginActivity$4
- com.example.zinstagram.ui.login.LoginActivity$5
-com/example/zinstagram/ui/login/LoginViewModel.java
- com.example.zinstagram.ui.login.LoginViewModel
-com/example/zinstagram/ui/login/LoginResult.java
- com.example.zinstagram.ui.login.LoginResult
-com/example/zinstagram/data/LoginRepository.java
- com.example.zinstagram.data.LoginRepository
-com/example/zinstagram/data/LoginDataSource.java
- com.example.zinstagram.data.LoginDataSource
+com/example/zinstagram/SignInActivity.java
+ com.example.zinstagram.SignInActivity
+com/example/zinstagram/Registration.java
+ com.example.zinstagram.Registration
 com/example/zinstagram/BuildConfig.java
  com.example.zinstagram.BuildConfig
-com/example/zinstagram/data/model/LoggedInUser.java
- com.example.zinstagram.data.model.LoggedInUser
-com/example/zinstagram/ui/login/LoginViewModelFactory.java
- com.example.zinstagram.ui.login.LoginViewModelFactory
-com/example/zinstagram/data/Result.java
- com.example.zinstagram.data.Result
- com.example.zinstagram.data.Result$1
- com.example.zinstagram.data.Result$Error
- com.example.zinstagram.data.Result$Success
-com/example/zinstagram/ui/login/LoggedInUserView.java
- com.example.zinstagram.ui.login.LoggedInUserView

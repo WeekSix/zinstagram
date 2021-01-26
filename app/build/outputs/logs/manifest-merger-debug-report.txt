@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:2:1-23:12
-INJECTED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:2:1-23:12
-INJECTED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:2:1-23:12
-INJECTED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:2:1-23:12
+ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:2:1-31:12
+INJECTED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:2:1-31:12
+INJECTED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:2:1-31:12
+INJECTED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:2:1-31:12
 MERGED from [com.google.android.material:material:1.2.1] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\fce964e4db6e9be043333bce0f84b692\material-1.2.1\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\d94e13cc449c36c2f070b7270446377a\constraintlayout-2.0.4\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\e43694ecc51e53385e76269584311f93\appcompat-1.2.0\AndroidManifest.xml:17:1-24:12
@@ -62,28 +62,29 @@ MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\ZN\.gradle\caches\tr
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\cd92affb712de4fb6532c019a2dd7be3\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\7b8f8afe74c950660e6fb9510b0321fe\documentfile-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.print:print:1.0.0] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\b5918733864baedd4178817cd2c9b9b2\print-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.multidex:multidex:2.0.1] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\d1744413796f3fbfd7e5897775a31224\multidex-2.0.1\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\99b20ce235e878ca4eecc198dce90047\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.firebase:protolite-well-known-types:17.1.1] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\4908c5f0e8a46d85aa04be703ea20051\jetified-protolite-well-known-types-17.1.1\AndroidManifest.xml:2:1-11:12
 MERGED from [io.grpc:grpc-android:1.28.0] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\3054e503c17d77e760bb2c70ea8acfcb\jetified-grpc-android-1.28.0\AndroidManifest.xml:2:1-13:12
-INJECTED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:2:1-23:12
-INJECTED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:2:1-23:12
-INJECTED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:2:1-23:12
+INJECTED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:2:1-31:12
+INJECTED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:2:1-31:12
+INJECTED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:2:1-31:12
 	package
 		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:3:5-37
 		INJECTED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml
 		INJECTED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml
-		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:2:1-23:12
+		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:2:1-31:12
 		INJECTED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml
-		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:2:1-23:12
+		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:2:1-31:12
 		INJECTED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:5:5-21:19
+ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:5:5-26:19
 MERGED from [com.google.android.material:material:1.2.1] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\fce964e4db6e9be043333bce0f84b692\material-1.2.1\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.2.1] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\fce964e4db6e9be043333bce0f84b692\material-1.2.1\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\d94e13cc449c36c2f070b7270446377a\constraintlayout-2.0.4\AndroidManifest.xml:9:5-20
@@ -139,27 +140,41 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\ZN
 	android:roundIcon
 		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:9:9-54
 	android:icon
-		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:7:9-43
+		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:7:9-56
 	android:allowBackup
 		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:6:9-35
 	android:theme
 		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:11:9-48
-activity#com.example.zinstagram.ui.login.LoginActivity
-ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:12:9-20:20
-	android:label
-		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:14:13-45
+activity#com.example.zinstagram.Registration
+ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:12:9-59
 	android:name
-		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:13:13-51
+		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:12:19-47
+activity#com.example.zinstagram.SignInActivity
+ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:13:9-19:20
+	android:name
+		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:13:19-49
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:15:13-19:29
+ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:14:13-18:29
 action#android.intent.action.MAIN
-ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:16:17-69
+ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:15:17-69
 	android:name
-		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:16:25-66
+		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:15:25-66
 category#android.intent.category.LAUNCHER
-ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:18:17-77
+ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:17:17-77
 	android:name
-		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:18:27-74
+		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:17:27-74
+meta-data#preloaded_fonts
+ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:21:9-23:57
+	android:resource
+		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:23:13-54
+	android:name
+		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:22:13-43
+uses-feature#android.hardware.camera
+ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:28:5-29:36
+	android:required
+		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:29:9-33
+	android:name
+		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:28:19-57
 uses-sdk
 INJECTED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml
@@ -280,6 +295,8 @@ MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\ZN\.gradle\cache
 MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\7b8f8afe74c950660e6fb9510b0321fe\documentfile-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.print:print:1.0.0] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\b5918733864baedd4178817cd2c9b9b2\print-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.print:print:1.0.0] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\b5918733864baedd4178817cd2c9b9b2\print-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.multidex:multidex:2.0.1] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\d1744413796f3fbfd7e5897775a31224\multidex-2.0.1\AndroidManifest.xml:20:5-43
+MERGED from [androidx.multidex:multidex:2.0.1] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\d1744413796f3fbfd7e5897775a31224\multidex-2.0.1\AndroidManifest.xml:20:5-43
 MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\99b20ce235e878ca4eecc198dce90047\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\99b20ce235e878ca4eecc198dce90047\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.firebase:protolite-well-known-types:17.1.1] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\4908c5f0e8a46d85aa04be703ea20051\jetified-protolite-well-known-types-17.1.1\AndroidManifest.xml:7:5-9:41

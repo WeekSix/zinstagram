@@ -45,6 +45,10 @@ animator mtrl_fab_hide_motion_spec
 animator mtrl_fab_show_motion_spec
 animator mtrl_fab_transformation_sheet_collapse_spec
 animator mtrl_fab_transformation_sheet_expand_spec
+array com_google_android_gms_fonts_certs
+array com_google_android_gms_fonts_certs_dev
+array com_google_android_gms_fonts_certs_prod
+array preloaded_fonts
 attr actionBarDivider
 attr actionBarItemBackground
 attr actionBarPopupTheme
@@ -1555,6 +1559,13 @@ drawable btn_radio_off_mtrl
 drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
+drawable cat1
+drawable cat2
+drawable cat3
+drawable cat4
+drawable cat5
+drawable cat6
+drawable cat7
 drawable common_full_open_on_phone
 drawable common_google_signin_btn_icon_dark
 drawable common_google_signin_btn_icon_dark_focused
@@ -1620,6 +1631,9 @@ drawable notify_panel_notification_icon_bg
 drawable test_custom_background
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
+drawable wallpapersden
+drawable walpaper
+font alfa_slab_one
 id ALT
 id BOTTOM_END
 id BOTTOM_START
@@ -1702,6 +1716,7 @@ id auto
 id autoComplete
 id autoCompleteToEnd
 id autoCompleteToStart
+id banner
 id barrier
 id baseline
 id beginOnFirstDraw
@@ -1729,6 +1744,7 @@ id clear_text
 id clip_horizontal
 id clip_vertical
 id collapseActionView
+id confirmPassword
 id confirm_button
 id container
 id content
@@ -1768,6 +1784,7 @@ id easeIn
 id easeInOut
 id easeOut
 id edit_query
+id email
 id end
 id enterAlways
 id enterAlwaysCollapsed
@@ -1819,8 +1836,6 @@ id line3
 id linear
 id listMode
 id list_item
-id loading
-id login
 id masked
 id message
 id middle
@@ -1880,11 +1895,13 @@ id percent
 id pin
 id position
 id postLayout
+id progressBar
 id progress_circular
 id progress_horizontal
 id radio
 id ratio
 id rectangles
+id register
 id reverseSawtooth
 id right
 id right_icon
@@ -1913,10 +1930,12 @@ id search_src_text
 id search_voice_btn
 id select_dialog_listview
 id selected
+id shortBio
 id shortcut
 id showCustom
 id showHome
 id showTitle
+id signIn
 id sin
 id skipCollapsed
 id slide
@@ -1992,7 +2011,7 @@ id uniform
 id unlabeled
 id up
 id useLogo
-id username
+id userName
 id view_offset_helper
 id visible
 id wide
@@ -2062,7 +2081,9 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
-layout activity_login
+layout activity_main
+layout activity_registration
+layout activity_sign_in
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -2166,6 +2187,7 @@ string action_sign_in_short
 string app_name
 string appbar_scrolling_view_behavior
 string bottom_sheet_behavior
+string button
 string character_counter_content_description
 string character_counter_overflowed_content_description
 string character_counter_pattern
@@ -2251,8 +2273,10 @@ string project_id
 string prompt_email
 string prompt_password
 string search_menu_title
+string sign_in
 string status_bar_notification_info_overflow
 string welcome
+string zinstagram
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style AndroidThemeColorAccentYellow
