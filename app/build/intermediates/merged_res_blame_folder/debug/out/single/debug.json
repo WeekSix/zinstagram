@@ -44,8 +44,8 @@
         "source": "E:\\2021Winter\\ECE1778\\zinstagram\\app\\src\\main\\res\\font\\alfa_slab_one.xml"
     },
     {
-        "merged": "E:\\2021Winter\\ECE1778\\zinstagram\\app\\build\\intermediates\\res\\merged\\debug\\drawable_cat3.jpg.flat",
-        "source": "E:\\2021Winter\\ECE1778\\zinstagram\\app\\src\\main\\res\\drawable\\cat3.jpg"
+        "merged": "E:\\2021Winter\\ECE1778\\zinstagram\\app\\build\\intermediates\\res\\merged\\debug\\drawable_profile.jpg.flat",
+        "source": "E:\\2021Winter\\ECE1778\\zinstagram\\app\\src\\main\\res\\drawable\\profile.jpg"
     },
     {
         "merged": "E:\\2021Winter\\ECE1778\\zinstagram\\app\\build\\intermediates\\res\\merged\\debug\\drawable_cat1.jpg.flat",
@@ -96,15 +96,23 @@
         "source": "E:\\2021Winter\\ECE1778\\zinstagram\\app\\src\\main\\res\\layout\\activity_registration.xml"
     },
     {
-        "merged": "E:\\2021Winter\\ECE1778\\zinstagram\\app\\build\\intermediates\\res\\merged\\debug\\drawable_cat2.jpg.flat",
-        "source": "E:\\2021Winter\\ECE1778\\zinstagram\\app\\src\\main\\res\\drawable\\cat2.jpg"
-    },
-    {
         "merged": "E:\\2021Winter\\ECE1778\\zinstagram\\app\\build\\intermediates\\res\\merged\\debug\\drawable_cat7.jpg.flat",
         "source": "E:\\2021Winter\\ECE1778\\zinstagram\\app\\src\\main\\res\\drawable\\cat7.jpg"
     },
     {
+        "merged": "E:\\2021Winter\\ECE1778\\zinstagram\\app\\build\\intermediates\\res\\merged\\debug\\drawable_cat2.jpg.flat",
+        "source": "E:\\2021Winter\\ECE1778\\zinstagram\\app\\src\\main\\res\\drawable\\cat2.jpg"
+    },
+    {
+        "merged": "E:\\2021Winter\\ECE1778\\zinstagram\\app\\build\\intermediates\\res\\merged\\debug\\drawable_catprofile.jpg.flat",
+        "source": "E:\\2021Winter\\ECE1778\\zinstagram\\app\\src\\main\\res\\drawable\\catprofile.jpg"
+    },
+    {
         "merged": "E:\\2021Winter\\ECE1778\\zinstagram\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
         "source": "E:\\2021Winter\\ECE1778\\zinstagram\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "E:\\2021Winter\\ECE1778\\zinstagram\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_profile.xml.flat",
+        "source": "E:\\2021Winter\\ECE1778\\zinstagram\\app\\src\\main\\res\\layout\\activity_profile.xml"
     }
 ]
