@@ -1,2 +1,2 @@
 "# zinstagram" 
-1778 Assignment 1
+An instagram app build by Andriod Studio and Firebase using Java
