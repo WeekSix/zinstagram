@@ -1,13 +1,14 @@
 -- Merging decision tree log ---
 manifest
-ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:2:1-38:12
-INJECTED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:2:1-38:12
-INJECTED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:2:1-38:12
-INJECTED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:2:1-38:12
+ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:2:1-53:12
+INJECTED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:2:1-53:12
+INJECTED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:2:1-53:12
+INJECTED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:2:1-53:12
 MERGED from [com.google.android.material:material:1.2.1] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\fce964e4db6e9be043333bce0f84b692\material-1.2.1\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\d94e13cc449c36c2f070b7270446377a\constraintlayout-2.0.4\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\e43694ecc51e53385e76269584311f93\appcompat-1.2.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.firebase:firebase-database:19.6.0] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\fbe8c2c62ef2c08682d291ad9040b16a\jetified-firebase-database-19.6.0\AndroidManifest.xml:15:1-38:12
+MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\c7d1ec06bc39f41e5b6a3065093f82e9\jetified-picasso-2.71828\AndroidManifest.xml:2:1-14:12
 MERGED from [com.google.firebase:firebase-firestore:22.0.1] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\aaedf581873ad71af9d10276ca342e88\jetified-firebase-firestore-22.0.1\AndroidManifest.xml:2:1-26:12
 MERGED from [com.google.firebase:firebase-storage:19.2.1] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\7d392132b085a476c14a349696b1aaf8\jetified-firebase-storage-19.2.1\AndroidManifest.xml:15:1-39:12
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\123323beb5b44cded8cfca132de6bac5\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
@@ -71,20 +72,20 @@ MERGED from [de.hdodenhof:circleimageview:3.1.0] C:\Users\ZN\.gradle\caches\tran
 MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\99b20ce235e878ca4eecc198dce90047\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.firebase:protolite-well-known-types:17.1.1] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\4908c5f0e8a46d85aa04be703ea20051\jetified-protolite-well-known-types-17.1.1\AndroidManifest.xml:2:1-11:12
 MERGED from [io.grpc:grpc-android:1.28.0] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\3054e503c17d77e760bb2c70ea8acfcb\jetified-grpc-android-1.28.0\AndroidManifest.xml:2:1-13:12
-INJECTED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:2:1-38:12
-INJECTED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:2:1-38:12
-INJECTED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:2:1-38:12
+INJECTED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:2:1-53:12
+INJECTED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:2:1-53:12
+INJECTED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:2:1-53:12
 	package
 		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:3:5-37
 		INJECTED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml
 		INJECTED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml
-		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:2:1-38:12
+		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:2:1-53:12
 		INJECTED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml
-		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:2:1-38:12
+		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:2:1-53:12
 		INJECTED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:2:11-69
@@ -95,7 +96,7 @@ ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:5:5
 	android:name
 		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:6:9-47
 uses-permission#android.permission.INTERNET
-ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:9:5-66
+ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:9:5-67
 MERGED from [com.google.firebase:firebase-database:19.6.0] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\fbe8c2c62ef2c08682d291ad9040b16a\jetified-firebase-database-19.6.0\AndroidManifest.xml:26:5-67
 MERGED from [com.google.firebase:firebase-database:19.6.0] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\fbe8c2c62ef2c08682d291ad9040b16a\jetified-firebase-database-19.6.0\AndroidManifest.xml:26:5-67
 MERGED from [com.google.firebase:firebase-firestore:22.0.1] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\aaedf581873ad71af9d10276ca342e88\jetified-firebase-firestore-22.0.1\AndroidManifest.xml:14:5-67
@@ -117,7 +118,7 @@ MERGED from [com.google.android.gms:play-services-measurement-sdk-api:18.0.1] C:
 	android:name
 		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:9:22-64
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:14:5-78
+ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:14:5-79
 MERGED from [com.google.firebase:firebase-database:19.6.0] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\fbe8c2c62ef2c08682d291ad9040b16a\jetified-firebase-database-19.6.0\AndroidManifest.xml:25:5-79
 MERGED from [com.google.firebase:firebase-database:19.6.0] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\fbe8c2c62ef2c08682d291ad9040b16a\jetified-firebase-database-19.6.0\AndroidManifest.xml:25:5-79
 MERGED from [com.google.firebase:firebase-firestore:22.0.1] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\aaedf581873ad71af9d10276ca342e88\jetified-firebase-firestore-22.0.1\AndroidManifest.xml:13:5-79
@@ -140,14 +141,24 @@ MERGED from [io.grpc:grpc-android:1.28.0] C:\Users\ZN\.gradle\caches\transforms-
 MERGED from [io.grpc:grpc-android:1.28.0] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\3054e503c17d77e760bb2c70ea8acfcb\jetified-grpc-android-1.28.0\AndroidManifest.xml:11:5-79
 	android:name
 		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:14:22-76
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:15:5-80
+	android:name
+		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:15:22-77
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:16:5-81
+	android:name
+		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:16:22-78
 application
-ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:16:5-36:19
+ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:18:5-51:19
 MERGED from [com.google.android.material:material:1.2.1] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\fce964e4db6e9be043333bce0f84b692\material-1.2.1\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.2.1] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\fce964e4db6e9be043333bce0f84b692\material-1.2.1\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\d94e13cc449c36c2f070b7270446377a\constraintlayout-2.0.4\AndroidManifest.xml:9:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\d94e13cc449c36c2f070b7270446377a\constraintlayout-2.0.4\AndroidManifest.xml:9:5-20
 MERGED from [com.google.firebase:firebase-database:19.6.0] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\fbe8c2c62ef2c08682d291ad9040b16a\jetified-firebase-database-19.6.0\AndroidManifest.xml:28:5-36:19
 MERGED from [com.google.firebase:firebase-database:19.6.0] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\fbe8c2c62ef2c08682d291ad9040b16a\jetified-firebase-database-19.6.0\AndroidManifest.xml:28:5-36:19
+MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\c7d1ec06bc39f41e5b6a3065093f82e9\jetified-picasso-2.71828\AndroidManifest.xml:7:5-12:19
+MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\c7d1ec06bc39f41e5b6a3065093f82e9\jetified-picasso-2.71828\AndroidManifest.xml:7:5-12:19
 MERGED from [com.google.firebase:firebase-firestore:22.0.1] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\aaedf581873ad71af9d10276ca342e88\jetified-firebase-firestore-22.0.1\AndroidManifest.xml:16:5-24:19
 MERGED from [com.google.firebase:firebase-firestore:22.0.1] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\aaedf581873ad71af9d10276ca342e88\jetified-firebase-firestore-22.0.1\AndroidManifest.xml:16:5-24:19
 MERGED from [com.google.firebase:firebase-storage:19.2.1] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\7d392132b085a476c14a349696b1aaf8\jetified-firebase-storage-19.2.1\AndroidManifest.xml:29:5-37:19
@@ -199,45 +210,67 @@ MERGED from [de.hdodenhof:circleimageview:3.1.0] C:\Users\ZN\.gradle\caches\tran
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.3.1] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\9d9e18ee7e614ebb01ac561b2194ac3b\core-1.3.1\AndroidManifest.xml:24:18-86
 	android:supportsRtl
-		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:21:9-35
+		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:23:9-35
 	android:label
-		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:19:9-41
+		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:21:9-41
+	android:launchMode
+		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:25:9-44
 	android:roundIcon
-		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:20:9-54
+		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:22:9-54
 	android:icon
-		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:18:9-56
+		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:20:9-56
 	android:allowBackup
-		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:17:9-35
+		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:19:9-35
 	android:theme
-		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:22:9-48
-activity#com.example.zinstagram.ProfileActivity
-ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:23:9-62
+		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:24:9-48
+activity#com.example.zinstagram.ViewImageActivity
+ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:27:9-64
 	android:name
-		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:23:19-50
-activity#com.example.zinstagram.Registration
-ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:24:9-50
-	android:name
-		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:24:19-47
+		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:27:19-52
 activity#com.example.zinstagram.SignInActivity
-ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:25:9-31:20
+ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:28:9-52
 	android:name
-		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:25:19-49
+		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:28:19-49
+activity#com.example.zinstagram.Registration
+ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:29:9-50
+	android:name
+		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:29:19-47
+activity#com.example.zinstagram.ProfileActivity
+ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:30:9-36:20
+	android:name
+		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:30:19-50
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:26:13-30:29
+ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:31:13-35:29
 action#android.intent.action.MAIN
-ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:27:17-69
+ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:32:17-69
 	android:name
-		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:27:25-66
+		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:32:25-66
 category#android.intent.category.LAUNCHER
-ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:29:17-77
+ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:34:17-77
 	android:name
-		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:29:27-74
-meta-data#preloaded_fonts
-ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:33:9-35:57
+		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:34:27-74
+provider#androidx.core.content.FileProvider
+ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:38:9-46:20
+	android:grantUriPermissions
+		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:42:13-47
+	android:authorities
+		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:40:13-67
+	android:exported
+		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:41:13-37
+	android:name
+		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:39:13-62
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:43:13-45:64
 	android:resource
-		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:35:13-54
+		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:45:17-51
 	android:name
-		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:34:13-43
+		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:44:17-67
+meta-data#preloaded_fonts
+ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:48:9-50:57
+	android:resource
+		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:50:13-54
+	android:name
+		ADDED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml:49:13-43
 uses-sdk
 INJECTED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from E:\2021Winter\ECE1778\zinstagram\app\src\main\AndroidManifest.xml
@@ -250,6 +283,8 @@ MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\ZN\.gradle\caches\tran
 MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\e43694ecc51e53385e76269584311f93\appcompat-1.2.0\AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.firebase:firebase-database:19.6.0] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\fbe8c2c62ef2c08682d291ad9040b16a\jetified-firebase-database-19.6.0\AndroidManifest.xml:19:5-21:41
 MERGED from [com.google.firebase:firebase-database:19.6.0] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\fbe8c2c62ef2c08682d291ad9040b16a\jetified-firebase-database-19.6.0\AndroidManifest.xml:19:5-21:41
+MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\c7d1ec06bc39f41e5b6a3065093f82e9\jetified-picasso-2.71828\AndroidManifest.xml:5:5-44
+MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\c7d1ec06bc39f41e5b6a3065093f82e9\jetified-picasso-2.71828\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-firestore:22.0.1] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\aaedf581873ad71af9d10276ca342e88\jetified-firebase-firestore-22.0.1\AndroidManifest.xml:7:5-9:41
 MERGED from [com.google.firebase:firebase-firestore:22.0.1] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\aaedf581873ad71af9d10276ca342e88\jetified-firebase-firestore-22.0.1\AndroidManifest.xml:7:5-9:41
 MERGED from [com.google.firebase:firebase-storage:19.2.1] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\7d392132b085a476c14a349696b1aaf8\jetified-firebase-storage-19.2.1\AndroidManifest.xml:20:5-22:41
@@ -414,6 +449,14 @@ ADDED from [com.google.firebase:firebase-database:19.6.0] C:\Users\ZN\.gradle\ca
 		ADDED from [com.google.firebase:firebase-database:19.6.0] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\fbe8c2c62ef2c08682d291ad9040b16a\jetified-firebase-database-19.6.0\AndroidManifest.xml:34:17-82
 	android:name
 		ADDED from [com.google.firebase:firebase-database:19.6.0] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\fbe8c2c62ef2c08682d291ad9040b16a\jetified-firebase-database-19.6.0\AndroidManifest.xml:33:17-109
+provider#com.squareup.picasso.PicassoProvider
+ADDED from [com.squareup.picasso:picasso:2.71828] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\c7d1ec06bc39f41e5b6a3065093f82e9\jetified-picasso-2.71828\AndroidManifest.xml:8:9-11:40
+	android:authorities
+		ADDED from [com.squareup.picasso:picasso:2.71828] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\c7d1ec06bc39f41e5b6a3065093f82e9\jetified-picasso-2.71828\AndroidManifest.xml:10:13-72
+	android:exported
+		ADDED from [com.squareup.picasso:picasso:2.71828] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\c7d1ec06bc39f41e5b6a3065093f82e9\jetified-picasso-2.71828\AndroidManifest.xml:11:13-37
+	android:name
+		ADDED from [com.squareup.picasso:picasso:2.71828] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\c7d1ec06bc39f41e5b6a3065093f82e9\jetified-picasso-2.71828\AndroidManifest.xml:9:13-64
 meta-data#com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar
 ADDED from [com.google.firebase:firebase-firestore:22.0.1] C:\Users\ZN\.gradle\caches\transforms-2\files-2.1\aaedf581873ad71af9d10276ca342e88\jetified-firebase-firestore-22.0.1\AndroidManifest.xml:20:13-22:85
 	android:value

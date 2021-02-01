@@ -48,8 +48,16 @@
         "source": "E:\\2021Winter\\ECE1778\\zinstagram\\app\\src\\main\\res\\drawable\\profile.jpg"
     },
     {
+        "merged": "E:\\2021Winter\\ECE1778\\zinstagram\\app\\build\\intermediates\\res\\merged\\debug\\xml_file_paths.xml.flat",
+        "source": "E:\\2021Winter\\ECE1778\\zinstagram\\app\\src\\main\\res\\xml\\file_paths.xml"
+    },
+    {
         "merged": "E:\\2021Winter\\ECE1778\\zinstagram\\app\\build\\intermediates\\res\\merged\\debug\\drawable_cat1.jpg.flat",
         "source": "E:\\2021Winter\\ECE1778\\zinstagram\\app\\src\\main\\res\\drawable\\cat1.jpg"
+    },
+    {
+        "merged": "E:\\2021Winter\\ECE1778\\zinstagram\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_view_image.xml.flat",
+        "source": "E:\\2021Winter\\ECE1778\\zinstagram\\app\\src\\main\\res\\layout\\activity_view_image.xml"
     },
     {
         "merged": "E:\\2021Winter\\ECE1778\\zinstagram\\app\\build\\intermediates\\res\\merged\\debug\\drawable_walpaper.jpg.flat",
@@ -82,6 +90,10 @@
     {
         "merged": "E:\\2021Winter\\ECE1778\\zinstagram\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
         "source": "E:\\2021Winter\\ECE1778\\zinstagram\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\2021Winter\\ECE1778\\zinstagram\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_image_view.xml.flat",
+        "source": "E:\\2021Winter\\ECE1778\\zinstagram\\app\\src\\main\\res\\layout\\activity_image_view.xml"
     },
     {
         "merged": "E:\\2021Winter\\ECE1778\\zinstagram\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",

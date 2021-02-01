@@ -1653,7 +1653,6 @@ id SHOW_PROGRESS
 id SYM
 id TOP_END
 id TOP_START
-id UID
 id accelerate
 id accessibility_action_clickable_span
 id accessibility_custom_action_0
@@ -1708,6 +1707,7 @@ id action_text
 id actions
 id activity_chooser_view_content
 id add
+id addImage
 id adjust_height
 id adjust_width
 id alertTitle
@@ -1828,6 +1828,7 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
+id imageView
 id info
 id invisible
 id italic
@@ -1911,7 +1912,11 @@ id progress_horizontal
 id radio
 id ratio
 id rectangles
+id recyclerView
 id register
+id relativeLayout
+id relativeLayout2
+id relativeLayout3
 id reverseSawtooth
 id right
 id right_icon
@@ -2091,10 +2096,12 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_image_view
 layout activity_main
 layout activity_profile
 layout activity_registration
 layout activity_sign_in
+layout activity_view_image
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -3107,6 +3114,7 @@ styleable View android_theme android_focusable paddingEnd paddingStart theme
 styleable ViewBackgroundHelper android_background backgroundTint backgroundTintMode
 styleable ViewPager2 android_orientation
 styleable ViewStubCompat android_id android_layout android_inflatedId
+xml file_paths
 xml standalone_badge
 xml standalone_badge_gravity_bottom_end
 xml standalone_badge_gravity_bottom_start

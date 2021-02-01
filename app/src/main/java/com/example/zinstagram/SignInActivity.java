@@ -7,6 +7,7 @@ import androidx.constraintlayout.solver.PriorityGoalRow;
 import android.os.Bundle;
 import com.example.zinstagram.R;
 import android.content.Intent;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -29,12 +30,14 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     private EditText editTextEmail, editTextPassword;
     private Button signIn;
     private ProgressBar progressBar;
+    private static String TAG = "SignInActivity";
 
     // declare firebase auth
     private FirebaseAuth mAuth;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        Log.d(TAG,"onCreate: Done" );
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
 
@@ -54,12 +57,6 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
 
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
-
-        if(mAuth.getCurrentUser()!=null){
-            startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
-        }else{
-            //Sign In Pate
-        }
     }
 
     @Override
@@ -69,13 +66,14 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
                 startActivity(new Intent(this, Registration.class));
                 break;
             case R.id.signIn:
-                userLogin();
+                userSignIn();
                 break;
         }
 
     }
 
-    private void userLogin() {
+    private void userSignIn() {
+        Log.d(TAG,"User Sign In");
         //Get users credentials and convert to string
         String email = editTextEmail.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
@@ -100,10 +98,6 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         }
 
         progressBar.setVisibility(View.VISIBLE);
-
-        if (mAuth.getCurrentUser() == null) {
-            Toast.makeText(SignInActivity.this, "User does not exist", Toast.LENGTH_LONG).show();
-        }
 
         //Pass user email and password to Firebase and sign in
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
