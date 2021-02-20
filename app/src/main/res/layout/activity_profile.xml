@@ -15,8 +15,8 @@
         android:id="@+id/relativeLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:gravity="center"
-        android:layout_marginTop="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.089"
@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
-            android:gravity="clip_horizontal"
+            android:gravity="center"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -53,11 +53,11 @@
                 android:id="@+id/bio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="2dp"
                 android:layout_gravity="center"
+                android:padding="2dp"
                 android:text="Short_bio"
                 android:textColor="@color/white"
-                android:textSize="18sp"
+                android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.131"
@@ -77,55 +77,47 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_weight="1.35"
+        android:layout_weight="1"
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="1dp"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout2">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="#ABFFFFFF"
             android:scrollbars="vertical" />
 
-    </RelativeLayout>
 
-    <RelativeLayout
-        android:layout_weight="3"
-        android:id="@+id/relativeLayout3"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="2dp"
-        app:layout_constraintBottom_toTopOf="parent"
-        app:layout_constraintTop_toBottomOf="parent">
-
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:gravity="right">
+            android:gravity="bottom">
 
             <Button
                 android:id="@+id/addImage"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginRight="2dp"
+                android:layout_width="60dp"
+                android:layout_height="45dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_toStartOf="@+id/signOut"
                 android:onClick="takePhoto"
-                android:text="Add"
-                app:icon="@android:drawable/ic_input_add"
-                app:iconGravity = "start" />
+                app:icon="@android:drawable/ic_input_add" />
 
             <Button
                 android:id="@+id/signOut"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="SIGN OUT"
+                android:layout_width="60dp"
+                android:layout_height="45dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="5dp"
+                app:icon="@android:drawable/ic_lock_power_off"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-        </LinearLayout>
+        </RelativeLayout>
 
     </RelativeLayout>
 

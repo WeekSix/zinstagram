@@ -1748,6 +1748,7 @@ id chip3
 id chip_group
 id chronometer
 id clear_text
+id clickImageView
 id clip_horizontal
 id clip_vertical
 id collapseActionView
@@ -1916,7 +1917,6 @@ id recyclerView
 id register
 id relativeLayout
 id relativeLayout2
-id relativeLayout3
 id reverseSawtooth
 id right
 id right_icon

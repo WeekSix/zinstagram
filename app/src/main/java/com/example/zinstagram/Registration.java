@@ -165,7 +165,7 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
             return;
         }
 
-        if (bio.length() > 100) {
+        if (bio.length() > 60) {
             Toast.makeText(this, "Please give a shorter biography (less than 100 characters).", Toast.LENGTH_SHORT).show();
             editTextBio.getText().clear();
             return;
@@ -187,7 +187,7 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
                         hashUser.put("userName", user.userName);
                         hashUser.put("email", user.email);
                         hashUser.put("bio", user.bio);
-                        hashUser.put("displayPicPath", user.displayPicPath);
+                        hashUser.put("displayPicPath", "pics/" + user.displayPicPath);
 
                         //FirebaseDatabase database = FirebaseDatabase.getInstance(); //get Firebase database
 
