@@ -84,7 +84,7 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
         editTextBio = (EditText) findViewById(R.id.bio);
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
-
+        //A3
     }
 
     @Override
