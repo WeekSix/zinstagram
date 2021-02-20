@@ -30,8 +30,10 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
@@ -53,7 +55,6 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
 
     private CircleImageView profilePhoto;
     private int TAKE_IMAGE_CODE = 10001;
-    private Uri uri;
     private Bitmap bitmap;
 
     private FirebaseAuth mAuth;
@@ -95,7 +96,7 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
                 break;
                 // register new user method
             case R.id.photoUpload:
-                uploadPhoto();
+                takePhoto();
                 break;
 
             case R.id.register:
@@ -140,6 +141,7 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
         if(password.length() < 6) {
             editTextPassword.setError("Please enter a password length > 6.");
             editTextPassword.requestFocus();
+            editTextPassword.getText().clear();
             return;
         }
 
@@ -152,6 +154,8 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
         if(!password.equals(confirmPassword)) {
             editTextConfirmPassword.setError("Password not matching");
             editTextConfirmPassword.requestFocus();
+            editTextPassword.getText().clear();
+            editTextConfirmPassword.getText().clear();
             return;
         }
 
@@ -161,32 +165,42 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
             return;
         }
 
-
+        if (bio.length() > 100) {
+            Toast.makeText(this, "Please give a shorter biography (less than 100 characters).", Toast.LENGTH_SHORT).show();
+            editTextBio.getText().clear();
+            return;
+        }
 
         progressBar.setVisibility(View.VISIBLE);
-
         //Upload info to firebase
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(task -> {
 
                     if(task.isSuccessful()) {
-                        user user = new user(userName, email, bio); //create new object for new user
+
+                        String uid =  mAuth.getCurrentUser().getUid();
+
+                        Log.d(TAG, "createUserWithEmail:success");
+                        user user = new user(userName, email, bio, uid); //create new object for new user
+
                         Map<String, Object> hashUser = new HashMap<>();
                         hashUser.put("userName", user.userName);
                         hashUser.put("email", user.email);
                         hashUser.put("bio", user.bio);
+                        hashUser.put("displayPicPath", user.displayPicPath);
 
                         //FirebaseDatabase database = FirebaseDatabase.getInstance(); //get Firebase database
 
-                        //Store users value into its database object
+                        //Store users value into its FirebaseDatabase object
                         FirebaseFirestore.getInstance().collection("users")
-                                .document(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                .document(uid)
                                 .set(hashUser)
                                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
                                         if (task.isSuccessful()) {
                                             // Prompt message to tell user whether registration is successful or not.
+
                                             mAuth.getCurrentUser().sendEmailVerification();
                                             Toast.makeText(Registration.this, "User registered successful! Verification sent to your email", Toast.LENGTH_LONG).show();
                                             try {
@@ -194,7 +208,9 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
                                             } catch (InterruptedException e) {
                                                 e.printStackTrace();
                                             }
-
+                                            // Upload display photo to Firebase Storage
+                                            handleUploadPhoto(bitmap);
+                                            //Redirect to Profile Page and display user profile photo
                                             startActivity(new Intent(Registration.this, ProfileActivity.class).putExtra("bitmap",bitmap));
                                         } else {
                                             Toast.makeText(Registration.this, "Username already exist. Please try again.", Toast.LENGTH_LONG).show();
@@ -210,10 +226,10 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
     }
 
     // Open camera and capture image
-    public void uploadPhoto() {
-        Intent photoIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if (photoIntent.resolveActivity(getPackageManager()) != null) {
-            startActivityForResult(photoIntent, TAKE_IMAGE_CODE);
+    public void takePhoto() {
+        Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (cameraIntent.resolveActivity(getPackageManager()) != null) {
+            startActivityForResult(cameraIntent, TAKE_IMAGE_CODE);
         }
     }
 
@@ -226,7 +242,6 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
                 case RESULT_OK:
                     bitmap = (Bitmap) data.getExtras().get("data");
                     profilePhoto.setImageBitmap(bitmap);
-                    handleUploadPhoto(bitmap);
             }
         }
     }
@@ -239,52 +254,70 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
 
         //save photo in the path
         if (mAuth.getCurrentUser() != null) {
+            //set photo path
             StorageReference reference = FirebaseStorage.getInstance().getReference()
                     .child("pics/" + FirebaseAuth.getInstance().getCurrentUser().getUid())
-                    .child("profile.jpeg");
+                    .child("displayPic.jpg");
 
-        reference.putBytes(thumbnail.toByteArray())
-                .addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
-                        if (task.isSuccessful()) {
-                            getThumbnailUrl(reference);
+            reference.putBytes(thumbnail.toByteArray())
+                    .addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
+                            if (task.isSuccessful()) {
+                                getThumbnailUrl(reference);
+                            }
                         }
-                    }
-                });
+                    })
+                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
+                            double progressPercent = (100 * snapshot.getBytesTransferred() / snapshot.getTotalByteCount());
+                            progressBar.setProgress((int)progressPercent);
+                        }
+                    });
+        }
     }
-    }
-
+    //get uploaded photo uri
     private void getThumbnailUrl(StorageReference reference) {
         reference.getDownloadUrl()
                 .addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
                         Log.d(TAG, "onSuccess: " + uri);
-                        setUserProfileUrl(uri);
+                        //setUserProfileUrl(uri);
                     }
                 });
     }
 
-    private void setUserProfileUrl(Uri uri) {
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
-        UserProfileChangeRequest request = new UserProfileChangeRequest.Builder()
-                .setPhotoUri(uri)
-                .build();
-
-        user.updateProfile(request)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        Toast.makeText(Registration.this, "Photo upload Successful...", Toast.LENGTH_LONG).show();
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(Registration.this, "Profile photo failed...", Toast.LENGTH_LONG).show();
-                    }
-                });
-    }
+//    private void setUserProfileUrl(Uri uri) {
+//        UserProfileChangeRequest request = new UserProfileChangeRequest.Builder()
+//                .setPhotoUri(uri)
+//                .build();
+//
+//        mAuth.getCurrentUser().updateProfile(request)
+//                .addOnSuccessListener(new OnSuccessListener<Void>() {
+//                    @Override
+//                    public void onSuccess(Void aVoid) {
+//                        Toast.makeText(Registration.this, "Photo upload Successful...", Toast.LENGTH_LONG).show();
+//                        mAuth.getCurrentUser().getPhotoUrl().toString();
+//                        user user = new user(uri); //create new object for new user
+//
+//                        Map<String, Object> hashUser = new HashMap<>();
+//                        hashUser.put("userName", user.userName);
+//                        hashUser.put("email", user.email);
+//                        hashUser.put("bio", user.bio);
+//                        hashUser.put("displayPicPath", user.displayPicPath);
+//
+//                        FirebaseFirestore.getInstance().collection("users")
+//                                .document(uid)
+//                                .set(hashUser)
+//                    }
+//                })
+//                .addOnFailureListener(new OnFailureListener() {
+//                    @Override
+//                    public void onFailure(@NonNull Exception e) {
+//                        Toast.makeText(Registration.this, "Profile photo failed...", Toast.LENGTH_LONG).show();
+//                    }
+//                });
+//    }
 }
