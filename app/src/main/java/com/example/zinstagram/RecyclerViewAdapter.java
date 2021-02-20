@@ -21,6 +21,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> {
 
+    private static String TAG = "RecyclerViewAdapter";
+
     private ArrayList<PostedPhoto> postedPhotos;
     private Context mContext;
 
@@ -32,7 +34,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         //find the layout imageview
-        private ImageView imageView;
+        ImageView imageView;
 
         public MyViewHolder(final View view) {
             super(view);
@@ -42,24 +44,28 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
     @NonNull
     @Override
-    public RecyclerViewAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         //inflate the imageView holder
         View itemView = LayoutInflater.from(parent.getContext()).
                 inflate(R.layout.activity_image_view, parent, false);
-        return new MyViewHolder(itemView);
+        MyViewHolder myViewHolder = new MyViewHolder(itemView);
+        return myViewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerViewAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         //update the photo in image view
         //Glide.with(mContext).load(postedPhotos.get(position).getStorageRef()).into(holder.imageView);
         Picasso.get().load(postedPhotos.get(position).getStorageRef()).into(holder.imageView);
         holder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mContext, ViewImageActivity.class);
+                //send new intent to open on click image.
+                Log.d(TAG, "CLICK INTO OPEN IMAGE");
+                Intent intent = new Intent(v.getContext(), ViewImageActivity.class);
                 intent.putExtra("image_url", postedPhotos.get(position).getStorageRef());
-                mContext.startActivity(intent);
+                v.getContext().startActivity(intent);
+
             }
         });
     }

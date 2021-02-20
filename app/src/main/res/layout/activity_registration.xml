@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/cat7"
-    tools:context=".Registration">
+    tools:context=".Registration"
+    android:orientation="vertical"
+    android:gravity="center">
 
     <TextView
         android:id="@+id/banner"
@@ -16,88 +18,37 @@
         android:text="Zinstagram"
         android:textColor="@color/material_on_surface_emphasis_high_type"
         android:textSize="50sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.075" />
+        android:textStyle="bold" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profilePhoto"
-        android:layout_width="121dp"
+        android:layout_width="120dp"
         android:layout_height="120dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginBottom="40dp"
         android:src="@drawable/catprofile"
         app:civ_border_color="@color/white"
-        app:civ_border_width="2dp"
+        app:civ_border_width="2dp" />
+
+    <Button
+        android:id="@+id/photoUpload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="2dp"
+        android:hint="Upload photo"
         app:layout_constraintBottom_toTopOf="@+id/userName"
-        app:layout_constraintEnd_toStartOf="@+id/photoUpload"
-        app:layout_constraintHorizontal_bias="0.742"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/banner"
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/userName"
-        android:layout_width="200dp"
-        android:layout_height="35dp"
-        android:layout_marginBottom="12dp"
-        android:background="@color/white"
-        android:ems="10"
-        android:hint="User Name"
-        android:inputType="textPersonName"
-        android:padding="2dp"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/email"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.341"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <EditText
-        android:id="@+id/confirmPassword"
-        android:layout_width="200dp"
-        android:layout_height="35dp"
-        android:layout_marginBottom="12dp"
-        android:background="@color/white"
-        android:ems="10"
-        android:hint="Confirm Password"
-        android:inputType="textPassword"
-        android:padding="2dp"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/bio"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.355"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="200dp"
-        android:layout_height="35dp"
-        android:layout_marginBottom="8dp"
-        android:background="@color/white"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:padding="2dp"
-
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/confirmPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.355"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
         android:id="@+id/email"
-        android:layout_width="200dp"
-        android:layout_height="35dp"
-        android:layout_marginBottom="12dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:background="@color/white"
         android:ems="10"
         android:hint="Email Address"
+        android:textColorHint="@color/black"
         android:inputType="textEmailAddress"
         android:padding="2dp"
 
@@ -108,13 +59,59 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
+        android:id="@+id/userName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:ems="10"
+        android:hint="User Name"
+        android:textColorHint="@color/black"
+        android:inputType="textPersonName"
+        android:padding="2dp"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/email" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:ems="10"
+        android:hint="Password"
+        android:textColorHint="@color/black"
+        android:inputType="textPassword"
+        android:padding="2dp"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/confirmPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.355"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/confirmPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:ems="10"
+        android:hint="Confirm Password"
+        android:textColorHint="@color/black"
+        android:inputType="textPassword"
+        android:padding="2dp"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/bio" />
+
+    <EditText
         android:id="@+id/bio"
-        android:layout_width="200dp"
-        android:layout_height="35dp"
-        android:layout_marginBottom="184dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:background="@color/white"
         android:ems="10"
         android:hint="A Short Bio"
+        android:textColorHint="@color/black"
         android:padding="2dp"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -126,19 +123,17 @@
         android:id="@+id/register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
+        android:layout_marginTop="10dp"
         android:text="SIGN UP"
         app:layout_constraintBottom_toTopOf="@+id/signIn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.968"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bio"
-        app:layout_constraintVertical_bias="0.928" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/signIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:text="SIGN IN"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -146,18 +141,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.928" />
-
-    <Button
-        android:id="@+id/photoUpload"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="40dp"
-        android:text="Upload photo"
-        app:layout_constraintBottom_toTopOf="@+id/userName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/banner"
-        app:layout_constraintVertical_bias="0.0" />
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -173,4 +156,4 @@
         app:layout_constraintLeft_toLeftOf="parent" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

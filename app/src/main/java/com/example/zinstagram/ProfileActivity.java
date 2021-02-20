@@ -122,6 +122,8 @@ public class ProfileActivity extends AppCompatActivity {
         final TextView bioTextView = (TextView) findViewById(R.id.bio);
         final CircleImageView profilePhoto = (CircleImageView) findViewById(R.id.profilePhoto);
 
+
+        //Check if user alreayd logged in
         if(mAuth.getCurrentUser() == null){
             Log.d(TAG,"User NOT found, redirect Sign In.");
             Intent intent = new Intent(ProfileActivity.this, SignInActivity.class);
@@ -140,6 +142,7 @@ public class ProfileActivity extends AppCompatActivity {
 
             Log.d(TAG,"User found, countinue to profile page.");
         }
+
 
         // Set User basic info
         firestoreReference.document(uid).get()
@@ -194,14 +197,16 @@ public class ProfileActivity extends AppCompatActivity {
                 });
 
         //set user photos
+        Toast.makeText(ProfileActivity.this, "Loading images",
+                Toast.LENGTH_LONG).show();
         reloadPhoto();
     }
 
     private void reloadPhoto() {
         Log.d(TAG,"reloadPhoto Start");
-        //photoList.clear();
+        photoList.clear();
         photoFirebaseRef = db.collection("Photos")
-                .document(uid).collection("PostedPhotos");
+                .document(uid).collection("postedPhotos");
         Log.d(TAG, "photo referce get:" + photoFirebaseRef.toString());
 
         photoFirebaseRef.orderBy("timestamp", Query.Direction.DESCENDING).get()
@@ -353,7 +358,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         timeStamp = String.valueOf(System.currentTimeMillis());
         final StorageReference reference = FirebaseStorage.getInstance().getReference()
-                .child("pics").child(uid + "/" + timeStamp + "jpeg");
+                .child("pics").child(uid + "/" + timeStamp + ".jpg");
 
         reference.putBytes(baos.toByteArray())
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
