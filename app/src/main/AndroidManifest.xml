@@ -28,7 +28,7 @@
         android:theme="@style/Theme.Zinstagram">
         <uses-library
             android:name="com.google.android.wearable"
-            android:required="true" />
+            android:required="false" />
 
         <!--
                Set to true if your app is Standalone, that is, it does not require the handheld
@@ -38,17 +38,8 @@
             android:name="com.google.android.wearable.standalone"
             android:value="true" />
 
-        <activity
-            android:name=".CaptionActivity"
-            android:label="@string/title_activity_caption">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".CaptionActivity" />
         <activity android:name=".CommentActivity" />
-        <activity android:name=".ViewImageActivity" />
         <activity android:name=".SignInActivity" />
         <activity android:name=".Registration" />
         <activity android:name=".ProfileActivity">

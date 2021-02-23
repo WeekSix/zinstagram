@@ -38,7 +38,24 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\ZN\\.gradle\\caches\\transforms-2\\files-2.1\\ea6a8dcf4c301db7790f7764a5985c53\\jetified-play-services-basement-17.1.0\\res\\values-hu\\values.xml",
+                    "source": "C:\\Users\\ZN\\.gradle\\caches\\transforms-2\\files-2.1\\6113d02920d66fdbf55bca359a6a33fb\\jetified-play-services-base-17.4.0\\res\\values-hu\\values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
+                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+                        "startOffsets": "245,354,570,706,813,1040,1176,1324,1459,1688,1794,2010,2145,2376,2574,2671,2765",
+                        "endColumns": "108,215,135,106,226,135,147,134,228,105,215,134,230,197,96,93,112",
+                        "endOffsets": "353,569,705,812,1039,1175,1323,1458,1687,1793,2009,2144,2375,2573,2670,2764,2877"
+                    },
+                    "to": {
+                        "startLines": "29,30,31,32,33,34,35,36,38,39,40,41,42,43,44,45,46",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "2859,2972,3188,3328,3439,3666,3806,3958,4333,4562,4672,4888,5027,5258,5460,5561,5659",
+                        "endColumns": "112,215,139,110,226,139,151,138,228,109,215,138,230,201,100,97,116",
+                        "endOffsets": "2967,3183,3323,3434,3661,3801,3953,4092,4557,4667,4883,5022,5253,5455,5556,5654,5771"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\ZN\\.gradle\\caches\\transforms-2\\files-2.1\\0eea1ee4955a9ffa601a976c27a67178\\jetified-play-services-basement-17.4.0\\res\\values-hu\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -55,20 +72,20 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\ZN\\.gradle\\caches\\transforms-2\\files-2.1\\3fcc06d4568adad9f26d921b3ce0773c\\jetified-play-services-base-17.1.0\\res\\values-hu\\values.xml",
+                    "source": "C:\\Users\\ZN\\.gradle\\caches\\transforms-2\\files-2.1\\6f6f585181dc65f394c4957e90fb65e3\\wear-1.0.0\\res\\values-hu\\values-hu.xml",
                     "from": {
-                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
-                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
-                        "startOffsets": "245,354,570,706,813,1040,1176,1324,1459,1688,1794,2010,2145,2376,2574,2671,2765",
-                        "endColumns": "108,215,135,106,226,135,147,134,228,105,215,134,230,197,96,93,112",
-                        "endOffsets": "353,569,705,812,1039,1175,1323,1458,1687,1793,2009,2144,2375,2573,2670,2764,2877"
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,164",
+                        "endColumns": "108,114",
+                        "endOffsets": "159,274"
                     },
                     "to": {
-                        "startLines": "29,30,31,32,33,34,35,36,38,39,40,41,42,43,44,45,46",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "2859,2972,3188,3328,3439,3666,3806,3958,4333,4562,4672,4888,5027,5258,5460,5561,5659",
-                        "endColumns": "112,215,139,110,226,139,151,138,228,109,215,138,230,201,100,97,116",
-                        "endOffsets": "2967,3183,3323,3434,3661,3801,3953,4092,4557,4667,4883,5022,5253,5455,5556,5654,5771"
+                        "startLines": "49,50",
+                        "startColumns": "4,4",
+                        "startOffsets": "5961,6070",
+                        "endColumns": "108,114",
+                        "endOffsets": "6065,6180"
                     }
                 }
             ]

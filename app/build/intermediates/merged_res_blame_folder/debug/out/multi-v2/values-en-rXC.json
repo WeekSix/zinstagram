@@ -14,6 +14,23 @@
                     }
                 },
                 {
+                    "source": "C:\\Users\\ZN\\.gradle\\caches\\transforms-2\\files-2.1\\6f6f585181dc65f394c4957e90fb65e3\\wear-1.0.0\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,264",
+                        "endColumns": "208,218",
+                        "endOffsets": "259,478"
+                    },
+                    "to": {
+                        "startLines": "31,32",
+                        "startColumns": "4,4",
+                        "startOffsets": "5918,6127",
+                        "endColumns": "208,218",
+                        "endOffsets": "6122,6341"
+                    }
+                },
+                {
                     "source": "C:\\Users\\ZN\\.gradle\\caches\\transforms-2\\files-2.1\\9d9e18ee7e614ebb01ac561b2194ac3b\\core-1.3.1\\res\\values-en-rXC\\values-en-rXC.xml",
                     "from": {
                         "startLines": "2",

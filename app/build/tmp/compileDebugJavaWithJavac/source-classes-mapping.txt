@@ -1,3 +1,7 @@
+com/example/zinstagram/CommentViewAdapter.java
+ com.example.zinstagram.CommentViewAdapter
+ com.example.zinstagram.CommentViewAdapter$HeadViewHolder
+ com.example.zinstagram.CommentViewAdapter$ItemViewHolder
 com/example/zinstagram/SignInActivity.java
  com.example.zinstagram.SignInActivity
 com/example/zinstagram/Registration.java
@@ -8,8 +12,8 @@ com/example/zinstagram/Registration.java
  com.example.zinstagram.Registration$4
 com/example/zinstagram/BuildConfig.java
  com.example.zinstagram.BuildConfig
-com/example/zinstagram/ViewImageActivity.java
- com.example.zinstagram.ViewImageActivity
+com/example/zinstagram/Comments.java
+ com.example.zinstagram.Comments
 com/example/zinstagram/PostedPhoto.java
  com.example.zinstagram.PostedPhoto
 com/example/zinstagram/ProfileActivity.java
@@ -27,7 +31,22 @@ com/example/zinstagram/ProfileActivity.java
  com.example.zinstagram.ProfileActivity$9
 com/example/zinstagram/user.java
  com.example.zinstagram.user
+com/example/zinstagram/CaptionActivity.java
+ com.example.zinstagram.CaptionActivity
 com/example/zinstagram/RecyclerViewAdapter.java
  com.example.zinstagram.RecyclerViewAdapter
  com.example.zinstagram.RecyclerViewAdapter$1
  com.example.zinstagram.RecyclerViewAdapter$MyViewHolder
+com/example/zinstagram/CommentActivity.java
+ com.example.zinstagram.CommentActivity
+ com.example.zinstagram.CommentActivity$1
+ com.example.zinstagram.CommentActivity$2
+ com.example.zinstagram.CommentActivity$2$1
+ com.example.zinstagram.CommentActivity$3
+ com.example.zinstagram.CommentActivity$3$1
+ com.example.zinstagram.CommentActivity$3$2
+ com.example.zinstagram.CommentActivity$3$3
+ com.example.zinstagram.CommentActivity$4
+ com.example.zinstagram.CommentActivity$5
+ com.example.zinstagram.CommentActivity$6
+ com.example.zinstagram.CommentActivity$7

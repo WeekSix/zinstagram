@@ -2,6 +2,7 @@ package com.example.zinstagram;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.content.Context;
 import android.content.Intent;
@@ -25,6 +26,9 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -96,13 +100,34 @@ public class CommentActivity extends AppCompatActivity {
                 Toast.LENGTH_LONG).show();
 
         reloadComments();
-        ////////////
+
+        btnSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                comments = commentEditText.getText().toString();
+                if (TextUtils.isEmpty(comments)) {
+                    Toast.makeText(CommentActivity.this, "Please type your comment.", Toast.LENGTH_SHORT).show();
+                    return;
+                } else if (comments.length() > 200) {
+                    Toast.makeText(CommentActivity.this, "Your comment is too long (more than 200 characters)", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(CommentActivity.this, "Successfully commented", Toast.LENGTH_SHORT).show();
+                    uploadComments();
+                }
+            }
+        });
+
+        btnDelete.setOnClickListener(v -> deletePost());
+
+        btnBack.setOnClickListener(v -> onBackPressed());
     }
 
     private void reloadComments() {
         imageID.clear();
         commentsID.clear();
         commentsList.clear();
+
+        Log.d(TAG, "Start to reload comments");
 
         database.collection("Photos")
                 .whereEqualTo("storageRef", imageURL)
@@ -125,7 +150,8 @@ public class CommentActivity extends AppCompatActivity {
                             }
 
                             database.collection("Comments")
-                                    .whereEqualTo("imageRef", imageURL).orderBy("timestamp", Query.Direction.ASCENDING)
+                                    .whereEqualTo("photoRef", imageURL)
+                                    .orderBy("timestamp", Query.Direction.ASCENDING)
                                     .get()
                                     .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                                         @Override
@@ -138,7 +164,7 @@ public class CommentActivity extends AppCompatActivity {
                                                     Log.d(TAG, document.getId() + " : " + document.getData());
                                                 }
                                             } else {
-                                                Log.d(TAG, "Error getting documents: ", task.getException());
+                                                Log.d(TAG, "Error onComplete getting documents: ", task.getException());
                                             }
                                             //Adapt view to comment layout.
                                             commentViewAdapter = new CommentViewAdapter(context, commentsList, caption, imageURL);
@@ -154,13 +180,22 @@ public class CommentActivity extends AppCompatActivity {
     }
 
     private void uploadComments() {
+        Log.d(TAG, "uploadComments");
         comments = commentEditText.getText().toString();
         DocumentReference documentReference = database.collection("users").document(userID);
         documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot documentSnapshots, @Nullable FirebaseFirestoreException error) {
-                commentUsername = documentSnapshots.getString("username");
-                userProfileUrl = documentSnapshots.getString("profileURL");
+                commentUsername = documentSnapshots.getString("userName");
+                String displayPicPath = documentSnapshots.getString("displayPicPath");
+                StorageReference displayReference = FirebaseStorage.getInstance().getReference().child(displayPicPath);
+                displayReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+                        userProfileUrl = uri.toString();
+                        Log.d(TAG, "the profile ref for user " + userID  +"is " + userProfileUrl);
+                    }
+                });
 
                 timeStamp = String.valueOf(System.currentTimeMillis());
 

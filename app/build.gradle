@@ -54,6 +54,9 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'androidx.wear:wear:1.0.0'
+    // Dependency for ML image labelling
+    implementation 'com.google.mlkit:image-labeling-custom:16.3.1'
+    implementation 'com.google.mlkit:linkfirebase:16.1.0'
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
