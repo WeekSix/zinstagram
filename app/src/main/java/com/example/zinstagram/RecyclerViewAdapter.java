@@ -1,7 +1,6 @@
 package com.example.zinstagram;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,12 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.content.Context;
 
-import com.bumptech.glide.Glide;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
-import java.io.ObjectInputStream;
+
 import java.util.ArrayList;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -47,7 +42,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         //inflate the imageView holder
         View itemView = LayoutInflater.from(parent.getContext()).
-                inflate(R.layout.activity_image_view, parent, false);
+                inflate(R.layout.image_view, parent, false);
         MyViewHolder myViewHolder = new MyViewHolder(itemView);
         return myViewHolder;
     }

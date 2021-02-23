@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.zinstagram">
-    <!-- request camera features -->
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <uses-feature android:name="android.hardware.type.watch" /> <!-- request camera features -->
     <uses-feature
         android:name="android.hardware.camera"
         android:required="false" />
@@ -19,12 +22,33 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher_background"
         android:label="@string/app_name"
+        android:launchMode="singleInstance"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Zinstagram"
-        android:launchMode="singleInstance">
+        android:theme="@style/Theme.Zinstagram">
+        <uses-library
+            android:name="com.google.android.wearable"
+            android:required="true" />
 
-        <activity android:name=".ViewImageActivity"></activity>
+        <!--
+               Set to true if your app is Standalone, that is, it does not require the handheld
+               app to run.
+        -->
+        <meta-data
+            android:name="com.google.android.wearable.standalone"
+            android:value="true" />
+
+        <activity
+            android:name=".CaptionActivity"
+            android:label="@string/title_activity_caption">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".CommentActivity" />
+        <activity android:name=".ViewImageActivity" />
         <activity android:name=".SignInActivity" />
         <activity android:name=".Registration" />
         <activity android:name=".ProfileActivity">
@@ -42,7 +66,7 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths"></meta-data>
+                android:resource="@xml/file_paths" />
         </provider>
 
         <meta-data
