@@ -32,6 +32,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.SetOptions;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -58,7 +59,9 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
     private Bitmap bitmap;
 
     private FirebaseAuth mAuth;
-    //private FirebaseFirestore mFireStore;
+    private FirebaseUser mUser;
+    String uid;
+    private FirebaseFirestore database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +87,8 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
         editTextBio = (EditText) findViewById(R.id.bio);
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
+
+        database = FirebaseFirestore.getInstance();
         //A3
     }
 
@@ -178,16 +183,18 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
 
                     if(task.isSuccessful()) {
 
-                        String uid =  mAuth.getCurrentUser().getUid();
+                        uid =  mAuth.getCurrentUser().getUid();
 
                         Log.d(TAG, "createUserWithEmail:success");
                         user user = new user(userName, email, bio, uid); //create new object for new user
+
 
                         Map<String, Object> hashUser = new HashMap<>();
                         hashUser.put("userName", user.userName);
                         hashUser.put("email", user.email);
                         hashUser.put("bio", user.bio);
                         hashUser.put("displayPicPath", "pics/" + user.displayPicPath);
+                        //Log.d(TAG, "profileRef =>" + profileRef[0]);
 
                         //FirebaseDatabase database = FirebaseDatabase.getInstance(); //get Firebase database
 
@@ -210,6 +217,7 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
                                             }
                                             // Upload display photo to Firebase Storage
                                             handleUploadPhoto(bitmap);
+
                                             //Redirect to Profile Page and display user profile photo
                                             startActivity(new Intent(Registration.this, ProfileActivity.class).putExtra("bitmap",bitmap));
                                         } else {
@@ -284,40 +292,35 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public void onSuccess(Uri uri) {
                         Log.d(TAG, "onSuccess: " + uri);
-                        //setUserProfileUrl(uri);
+                        setUserProfileUrl(uri);
+                        Log.d(TAG, "proceed to set profile url ");
+                    }
+                });
+
+    }
+
+    private void setUserProfileUrl(Uri uri){
+        String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        String profileRef = uri.toString();
+
+        Map<String, Object> userUpdate = new HashMap<>();
+        userUpdate.put("profileRef", profileRef);
+
+        Log.d(TAG, "set profile URl with  => " + profileRef);
+
+        database.collection("users").document(userId)
+                .set(userUpdate, SetOptions.merge())
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d(TAG, userId + "DocumentSnapshot successfully written!");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w(TAG, "Error writing document", e);
                     }
                 });
     }
-
-//    private void setUserProfileUrl(Uri uri) {
-//        UserProfileChangeRequest request = new UserProfileChangeRequest.Builder()
-//                .setPhotoUri(uri)
-//                .build();
-//
-//        mAuth.getCurrentUser().updateProfile(request)
-//                .addOnSuccessListener(new OnSuccessListener<Void>() {
-//                    @Override
-//                    public void onSuccess(Void aVoid) {
-//                        Toast.makeText(Registration.this, "Photo upload Successful...", Toast.LENGTH_LONG).show();
-//                        mAuth.getCurrentUser().getPhotoUrl().toString();
-//                        user user = new user(uri); //create new object for new user
-//
-//                        Map<String, Object> hashUser = new HashMap<>();
-//                        hashUser.put("userName", user.userName);
-//                        hashUser.put("email", user.email);
-//                        hashUser.put("bio", user.bio);
-//                        hashUser.put("displayPicPath", user.displayPicPath);
-//
-//                        FirebaseFirestore.getInstance().collection("users")
-//                                .document(uid)
-//                                .set(hashUser)
-//                    }
-//                })
-//                .addOnFailureListener(new OnFailureListener() {
-//                    @Override
-//                    public void onFailure(@NonNull Exception e) {
-//                        Toast.makeText(Registration.this, "Profile photo failed...", Toast.LENGTH_LONG).show();
-//                    }
-//                });
-//    }
 }

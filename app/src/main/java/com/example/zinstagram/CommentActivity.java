@@ -117,7 +117,12 @@ public class CommentActivity extends AppCompatActivity {
             }
         });
 
-        btnDelete.setOnClickListener(v -> deletePost());
+        btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deletePost();
+            }
+        });
 
         btnBack.setOnClickListener(v -> onBackPressed());
     }
@@ -129,21 +134,31 @@ public class CommentActivity extends AppCompatActivity {
 
         Log.d(TAG, "Start to reload comments");
 
-        database.collection("Photos")
+        database.collection("Photos").document(userID)
+                .collection("postedPhotos")
                 .whereEqualTo("storageRef", imageURL)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
+                            Log.d(TAG, "Check complete reload");
+
                             for (QueryDocumentSnapshot document : task.getResult()) {
-                                // use Postedphoto template to load data from firebase.
-                                PostedPhoto postedPhoto = document.toObject(PostedPhoto.class);
-                                imageID.add(document.getId());
-                                caption = postedPhoto.getCaption();
-                                checkUid = postedPhoto.getUid();
-                                Log.d(TAG, document.getId() + " => " + document.getData());
+                                //Log.d(TAG, "Check query getResult");
+                                if (document.exists()) {
+                                    // use Postedphoto template to load data from firebase.
+                                    PostedPhoto postedPhoto = document.toObject(PostedPhoto.class);
+                                    imageID.add(document.getId());
+                                    caption = postedPhoto.getCaption();
+                                    checkUid = postedPhoto.getUid();
+                                    Log.d(TAG, document.getId() + " this  => " + document.getData());
+                                    Log.d(TAG, "The UID is => " + checkUid);
+                                }
                             }
+
+                            Log.d(TAG, "Check query getResult");
+
                             if(userID.equals(checkUid)) {
                                 //if current user,enable delete
                                 btnDelete.setEnabled(true);
@@ -187,15 +202,7 @@ public class CommentActivity extends AppCompatActivity {
             @Override
             public void onEvent(@Nullable DocumentSnapshot documentSnapshots, @Nullable FirebaseFirestoreException error) {
                 commentUsername = documentSnapshots.getString("userName");
-                String displayPicPath = documentSnapshots.getString("displayPicPath");
-                StorageReference displayReference = FirebaseStorage.getInstance().getReference().child(displayPicPath);
-                displayReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                    @Override
-                    public void onSuccess(Uri uri) {
-                        userProfileUrl = uri.toString();
-                        Log.d(TAG, "the profile ref for user " + userID  +"is " + userProfileUrl);
-                    }
-                });
+                userProfileUrl = documentSnapshots.getString("profileRef");
 
                 timeStamp = String.valueOf(System.currentTimeMillis());
 
@@ -230,7 +237,9 @@ public class CommentActivity extends AppCompatActivity {
 
     private void deletePost() {
         if(btnDelete.isEnabled()) {
-            database.collection("Photos").document(imageID.get(0))
+            database.collection("Photos").document(userID)
+                    .collection("postedPhotos")
+                    .document(imageID.get(0))
                     .delete()
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override

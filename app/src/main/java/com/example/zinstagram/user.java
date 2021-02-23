@@ -1,4 +1,7 @@
 package com.example.zinstagram;
+
+import android.app.Application;
+
 /*
 Create user Object for new users and send the Object to Firebase Storage.
  */
@@ -24,4 +27,13 @@ public class user {
     public user(String photoUrl) {
         this.photoUrl = photoUrl;
     }
+
+    public void setUserProfileImage(String photoUrl) {
+        this.photoUrl = photoUrl;
+    }
+
+    public String getUserProfileImage() {
+        return photoUrl;
+    }
+
 }
