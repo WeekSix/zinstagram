@@ -176,62 +176,72 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
             return;
         }
 
+        //Log.d(TAG, "in registration");
         progressBar.setVisibility(View.VISIBLE);
         //Upload info to firebase
         mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(task -> {
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        Log.d(TAG, "in registration " + email);
+                        if (task.isSuccessful()) {
+                            uid = mAuth.getCurrentUser().getUid();
+                            Log.d(TAG, "Register for user ->" + uid);
 
-                    if(task.isSuccessful()) {
-
-                        uid =  mAuth.getCurrentUser().getUid();
-
-                        Log.d(TAG, "createUserWithEmail:success");
-                        user user = new user(userName, email, bio, uid); //create new object for new user
+                            Log.d(TAG, "createUserWithEmail:success");
+                            user user = new user(userName, email, bio, uid); //create new object for new user
 
 
-                        Map<String, Object> hashUser = new HashMap<>();
-                        hashUser.put("userName", user.userName);
-                        hashUser.put("email", user.email);
-                        hashUser.put("bio", user.bio);
-                        hashUser.put("displayPicPath", "pics/" + user.displayPicPath);
-                        //Log.d(TAG, "profileRef =>" + profileRef[0]);
+                            Map<String, Object> hashUser = new HashMap<>();
+                            hashUser.put("userName", user.userName);
+                            hashUser.put("email", user.email);
+                            hashUser.put("bio", user.bio);
+                            hashUser.put("displayPicPath", "pics/" + user.displayPicPath);
 
-                        //FirebaseDatabase database = FirebaseDatabase.getInstance(); //get Firebase database
+                            //FirebaseDatabase database = FirebaseDatabase.getInstance(); //get Firebase database
 
-                        //Store users value into its FirebaseDatabase object
-                        FirebaseFirestore.getInstance().collection("users")
-                                .document(uid)
-                                .set(hashUser)
-                                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<Void> task) {
-                                        if (task.isSuccessful()) {
-                                            // Prompt message to tell user whether registration is successful or not.
+                            //Store users value into its FirebaseDatabase object
+                            FirebaseFirestore.getInstance().collection("users")
+                                    .document(uid)
+                                    .set(hashUser)
+                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if (task.isSuccessful()) {
+                                                // Prompt message to tell user whether registration is successful or not.
+                                                Log.d(TAG, "Try to save user info to firebase");
+                                                mAuth.getCurrentUser().sendEmailVerification();
+                                                Toast.makeText(Registration.this, "User registered successful! Verification sent to your email", Toast.LENGTH_LONG).show();
+                                                try {
+                                                    Thread.sleep(500);
+                                                } catch (InterruptedException e) {
+                                                    e.printStackTrace();
+                                                }
+                                                // Upload display photo to Firebase Storage
+                                                handleUploadPhoto(bitmap);
 
-                                            mAuth.getCurrentUser().sendEmailVerification();
-                                            Toast.makeText(Registration.this, "User registered successful! Verification sent to your email", Toast.LENGTH_LONG).show();
-                                            try {
-                                                Thread.sleep(500);
-                                            } catch (InterruptedException e) {
-                                                e.printStackTrace();
+                                                try {
+                                                    Thread.sleep(3000);
+                                                } catch (InterruptedException e) {
+                                                    e.printStackTrace();
+                                                }
+                                                //Redirect to Profile Page and display user profile photo
+                                                startActivity(new Intent(Registration.this, ProfileActivity.class).putExtra("bitmap", bitmap));
+                                            } else {
+                                                Toast.makeText(Registration.this, "Username already exist. Please try again.", Toast.LENGTH_LONG).show();
                                             }
-                                            // Upload display photo to Firebase Storage
-                                            handleUploadPhoto(bitmap);
-
-                                            //Redirect to Profile Page and display user profile photo
-                                            startActivity(new Intent(Registration.this, ProfileActivity.class).putExtra("bitmap",bitmap));
-                                        } else {
-                                            Toast.makeText(Registration.this, "Username already exist. Please try again.", Toast.LENGTH_LONG).show();
+                                            progressBar.setVisibility(View.GONE);
                                         }
-                                        progressBar.setVisibility(View.GONE);
-                                    }
-                                });
-                    } else {
-                        Toast.makeText(Registration.this, "Failed to register. Please try again Later", Toast.LENGTH_LONG).show();
-                        progressBar.setVisibility(View.GONE);
+                                    });
+                        } else {
+                            Toast.makeText(Registration.this, "Failed to register. Please try again Later", Toast.LENGTH_LONG).show();
+                            Log.e(TAG, "Failed Register");
+                            progressBar.setVisibility(View.GONE);
+                        }
                     }
                 });
     }
+
 
     // Open camera and capture image
     public void takePhoto() {
@@ -258,7 +268,7 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
     private void handleUploadPhoto(Bitmap bitmap) {
         ByteArrayOutputStream thumbnail = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, thumbnail);
-
+        Log.d(TAG,"Start to upload profile photo");
 
         //save photo in the path
         if (mAuth.getCurrentUser() != null) {
@@ -287,6 +297,7 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
     }
     //get uploaded photo uri
     private void getThumbnailUrl(StorageReference reference) {
+        Log.d(TAG,"Start to download profile photo url");
         reference.getDownloadUrl()
                 .addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override

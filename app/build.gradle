@@ -47,19 +47,17 @@ dependencies {
     implementation 'com.google.firebase:firebase-firestore'
     implementation 'com.google.firebase:firebase-storage'
     implementation 'com.google.firebase:firebase-database:19.6.0'
+    // Dependency for ML image labelling
+    implementation 'com.google.mlkit:image-labeling:17.0.2'
+
 
     // Dependency for circular ImageView
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     implementation 'com.github.bumptech.glide:glide:4.11.0'
-    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview'
     implementation 'com.squareup.picasso:picasso:2.71828'
-    implementation 'androidx.wear:wear:1.0.0'
-    // Dependency for ML image labelling
-    implementation 'com.google.mlkit:image-labeling-custom:16.3.1'
-    implementation 'com.google.mlkit:linkfirebase:16.1.0'
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-    compileOnly 'com.google.android.wearable:wearable:2.6.0'
 }

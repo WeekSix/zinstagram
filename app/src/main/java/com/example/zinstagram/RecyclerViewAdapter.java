@@ -41,8 +41,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         //inflate the imageView holder
-        View itemView = LayoutInflater.from(parent.getContext()).
-                inflate(R.layout.image_view, parent, false);
+        View itemView = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.image_view, parent, false);
         MyViewHolder myViewHolder = new MyViewHolder(itemView);
         return myViewHolder;
     }
@@ -60,7 +60,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 Intent intent = new Intent(v.getContext(), CommentActivity.class);
                 intent.putExtra("image_url", postedPhotos.get(position).getStorageRef());
                 v.getContext().startActivity(intent);
-
             }
         });
     }

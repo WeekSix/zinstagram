@@ -164,6 +164,8 @@ public class CommentActivity extends AppCompatActivity {
                                 btnDelete.setEnabled(true);
                             }
 
+                            Log.d(TAG, "Current Comment is for" + imageURL);
+
                             database.collection("Comments")
                                     .whereEqualTo("photoRef", imageURL)
                                     .orderBy("timestamp", Query.Direction.ASCENDING)
