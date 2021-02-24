@@ -221,7 +221,7 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
                                                 handleUploadPhoto(bitmap);
 
                                                 try {
-                                                    Thread.sleep(3000);
+                                                    Thread.sleep(1500);
                                                 } catch (InterruptedException e) {
                                                     e.printStackTrace();
                                                 }

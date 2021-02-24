@@ -134,8 +134,7 @@ public class CommentActivity extends AppCompatActivity {
 
         Log.d(TAG, "Start to reload comments");
 
-        database.collection("Photos").document(userID)
-                .collection("postedPhotos")
+        database.collection("Photos")
                 .whereEqualTo("storageRef", imageURL)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -153,7 +152,6 @@ public class CommentActivity extends AppCompatActivity {
                                     caption = postedPhoto.getCaption();
                                     checkUid = postedPhoto.getUid();
                                     Log.d(TAG, document.getId() + " this  => " + document.getData());
-                                    Log.d(TAG, "The UID is => " + checkUid);
                                 }
                             }
 
@@ -164,7 +162,6 @@ public class CommentActivity extends AppCompatActivity {
                                 btnDelete.setEnabled(true);
                             }
 
-                            Log.d(TAG, "Current Comment is for" + imageURL);
 
                             database.collection("Comments")
                                     .whereEqualTo("photoRef", imageURL)
@@ -239,8 +236,7 @@ public class CommentActivity extends AppCompatActivity {
 
     private void deletePost() {
         if(btnDelete.isEnabled()) {
-            database.collection("Photos").document(userID)
-                    .collection("postedPhotos")
+            database.collection("Photos")
                     .document(imageID.get(0))
                     .delete()
                     .addOnSuccessListener(new OnSuccessListener<Void>() {

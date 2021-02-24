@@ -239,7 +239,7 @@ public class CaptionActivity extends AppCompatActivity {
         photo.put("caption", captionStr);
 
         db = FirebaseFirestore.getInstance();
-        db.collection("Photos").document(userId).collection("postedPhotos")
+        db.collection("Photos")
                 .add(photo)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override

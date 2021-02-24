@@ -2,8 +2,10 @@ com/example/zinstagram/CommentViewAdapter.java
  com.example.zinstagram.CommentViewAdapter
  com.example.zinstagram.CommentViewAdapter$HeadViewHolder
  com.example.zinstagram.CommentViewAdapter$ItemViewHolder
-com/example/zinstagram/PostedPhoto.java
- com.example.zinstagram.PostedPhoto
+com/example/zinstagram/GlobalRecyclerAdapter.java
+ com.example.zinstagram.GlobalRecyclerAdapter
+ com.example.zinstagram.GlobalRecyclerAdapter$1
+ com.example.zinstagram.GlobalRecyclerAdapter$MyViewHolder
 com/example/zinstagram/SignInActivity.java
  com.example.zinstagram.SignInActivity
 com/example/zinstagram/BuildConfig.java
@@ -23,13 +25,10 @@ com/example/zinstagram/CaptionActivity.java
  com.example.zinstagram.CaptionActivity$7
  com.example.zinstagram.CaptionActivity$8
  com.example.zinstagram.CaptionActivity$9
-com/example/zinstagram/ProfileActivity.java
- com.example.zinstagram.ProfileActivity
- com.example.zinstagram.ProfileActivity$1
- com.example.zinstagram.ProfileActivity$2
- com.example.zinstagram.ProfileActivity$3
- com.example.zinstagram.ProfileActivity$4
- com.example.zinstagram.ProfileActivity$5
+com/example/zinstagram/RecyclerViewAdapter.java
+ com.example.zinstagram.RecyclerViewAdapter
+ com.example.zinstagram.RecyclerViewAdapter$1
+ com.example.zinstagram.RecyclerViewAdapter$MyViewHolder
 com/example/zinstagram/GlobalFeedActivity.java
  com.example.zinstagram.GlobalFeedActivity
  com.example.zinstagram.GlobalFeedActivity$1
@@ -45,14 +44,15 @@ com/example/zinstagram/Registration.java
  com.example.zinstagram.Registration$6
 com/example/zinstagram/user.java
  com.example.zinstagram.user
-com/example/zinstagram/GlobalRecyclerAdapter.java
- com.example.zinstagram.GlobalRecyclerAdapter
- com.example.zinstagram.GlobalRecyclerAdapter$1
- com.example.zinstagram.GlobalRecyclerAdapter$MyViewHolder
-com/example/zinstagram/RecyclerViewAdapter.java
- com.example.zinstagram.RecyclerViewAdapter
- com.example.zinstagram.RecyclerViewAdapter$1
- com.example.zinstagram.RecyclerViewAdapter$MyViewHolder
+com/example/zinstagram/PostedPhoto.java
+ com.example.zinstagram.PostedPhoto
+com/example/zinstagram/ProfileActivity.java
+ com.example.zinstagram.ProfileActivity
+ com.example.zinstagram.ProfileActivity$1
+ com.example.zinstagram.ProfileActivity$2
+ com.example.zinstagram.ProfileActivity$3
+ com.example.zinstagram.ProfileActivity$4
+ com.example.zinstagram.ProfileActivity$5
 com/example/zinstagram/CommentActivity.java
  com.example.zinstagram.CommentActivity
  com.example.zinstagram.CommentActivity$1

@@ -102,6 +102,7 @@ public class GlobalFeedActivity extends AppCompatActivity {
     private void reloadPhotos() {
         photoList.clear();
         db.collection("Photos")
+                .orderBy("timestamp", Query.Direction.DESCENDING)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override

@@ -196,11 +196,12 @@ public class ProfileActivity extends AppCompatActivity {
     private void reloadPhoto() {
         Log.d(TAG,"reloadPhoto Start");
         photoList.clear();
-        photoFirebaseRef = db.collection("Photos")
-                .document(uid).collection("postedPhotos");
-        Log.d(TAG, "photo referce get:" + photoFirebaseRef.toString());
+        Log.d(TAG, "photo referce get:" + uid);
 
-        photoFirebaseRef.orderBy("timestamp", Query.Direction.DESCENDING).get()
+        db.collection("Photos")
+                .whereEqualTo("uid", uid)
+                .orderBy("timestamp", Query.Direction.DESCENDING)
+                .get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
@@ -208,7 +209,7 @@ public class ProfileActivity extends AppCompatActivity {
                             //load firebase data set to local class object
                             PostedPhoto postedPhoto = documentSnapshot.toObject(PostedPhoto.class);
                             photoList.add(postedPhoto);
-                            Log.d(TAG,"Photo Query GET" + postedPhoto.getTimestamp());
+                            Log.d(TAG,"Photo Query GET");
                         }
 
                         RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(context, photoList);
@@ -303,123 +304,6 @@ public class ProfileActivity extends AppCompatActivity {
 
     public user getApp() {return ((user) getApplicationContext()); }
 
-//    private void handleUploadPhoto(Bitmap bitmapConvert) throws IOException {
-//        Bitmap squaredBitmap;
-//
-//        //crop captured image to square
-//        // width > height
-//        if (bitmapConvert.getWidth() >= bitmapConvert.getHeight()) {
-//            squaredBitmap = Bitmap.createBitmap(
-//                    bitmapConvert,
-//                    (bitmapConvert.getWidth() - bitmapConvert.getHeight())/2,
-//                    0,
-//                    bitmapConvert.getHeight(),
-//                    bitmapConvert.getHeight()
-//            );
-//
-//        } else {
-//            //height ? width
-//            squaredBitmap = Bitmap.createBitmap(
-//                    bitmapConvert,
-//                    0,
-//                    (bitmapConvert.getHeight() - bitmapConvert.getWidth())/2,
-//                    bitmapConvert.getWidth(),
-//                    bitmapConvert.getWidth()
-//            );
-//        }
-//
-//        ExifInterface ei = new ExifInterface(curPhotoPath);
-//        int orientation = ei.getAttributeInt(ExifInterface.TAG_ORIENTATION,
-//                ExifInterface.ORIENTATION_NORMAL);
-//
-//        Bitmap rotatedBitmap;
-//        switch(orientation) {
-//            case ExifInterface.ORIENTATION_ROTATE_90:
-//                rotatedBitmap = rotateImage(squaredBitmap, 90);
-//                break;
-//
-//            case ExifInterface.ORIENTATION_ROTATE_180:
-//                rotatedBitmap = rotateImage(squaredBitmap, 180);
-//                break;
-//
-//            case ExifInterface.ORIENTATION_ROTATE_270:
-//                rotatedBitmap = rotateImage(squaredBitmap, 270);
-//                break;
-////            case ExifInterface.ORIENTATION_NORMAL:
-//            default:
-//                rotatedBitmap = squaredBitmap;
-//        }
-//
-//        Bitmap finalBitmap = Bitmap.createScaledBitmap(rotatedBitmap, 1024, 1024, true);
-//        //compress final bitmap
-//        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-//        finalBitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-//
-//        timeStamp = String.valueOf(System.currentTimeMillis());
-//        final StorageReference reference = FirebaseStorage.getInstance().getReference()
-//                .child("pics").child(uid + "/" + timeStamp + ".jpg");
-//
-//        reference.putBytes(baos.toByteArray())
-//                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-//                    @Override
-//                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-//                        Toast.makeText(ProfileActivity.this, "Photo Posted", Toast.LENGTH_LONG).show();
-//                        getDownLoadUrl(reference);
-//                    }
-//                })
-//                .addOnFailureListener(new OnFailureListener() {
-//                    @Override
-//                    public void onFailure(@NonNull Exception e) {
-//                        Log.e(TAG,"Posting photo failed", e.getCause());
-//                    }
-//                });
-//    }
-//
-//    private Bitmap rotateImage(Bitmap squaredBitmap, int angle) {
-//        Matrix matrix = new Matrix();
-//        matrix.postRotate(angle);
-//        return Bitmap.createBitmap(squaredBitmap, 0, 0, squaredBitmap.getWidth(), squaredBitmap.getHeight(),
-//                matrix, true);
-//    }
-//
-//    private void getDownLoadUrl(StorageReference reference) {
-//        reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-//            @Override
-//            public void onSuccess(Uri uri) {
-//                Log.d(TAG, "uri get:" + uri);
-//                updatePhotoInfo(uri);
-//            }
-//        });
-//    }
-//
-//    private void updatePhotoInfo(Uri uri) {
-//        // Store captured photo information in firebase database.
-//        Map<String, Object> photo = new HashMap<>();
-//        photo.put("uid", uid);
-//        photo.put("storageRef", String.valueOf(uri));
-//        photo.put("timestamp", timeStamp);
-//
-//        db.collection("Photos").document(uid).collection("postedPhotos")
-//                .add(photo)
-//                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-//                    @Override
-//                    public void onSuccess(DocumentReference documentReference) {
-//                        Log.d(TAG, "DocumentSnapshot written with ID: " + documentReference.getId());
-//                    }
-//                })
-//                .addOnFailureListener(new OnFailureListener() {
-//                    @Override
-//                    public void onFailure(@NonNull Exception e) {
-//                        Log.w(TAG, "Error adding document", e);
-//                    }
-//                });
-//
-//        reloadPhoto();
-//    }
-//    private String getFileExtension(Uri uri) {
-//        ContentResolver cR = getContentResolver();
-//        MimeTypeMap mime = MimeTypeMap.getSingleton();
-//        return mime.getExtensionFromMimeType(cR.getType(uri));
-//    }
+
 }
 
