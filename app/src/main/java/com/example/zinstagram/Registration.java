@@ -32,6 +32,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.SetOptions;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -58,7 +59,9 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
     private Bitmap bitmap;
 
     private FirebaseAuth mAuth;
-    //private FirebaseFirestore mFireStore;
+    private FirebaseUser mUser;
+    String uid;
+    private FirebaseFirestore database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,6 +88,8 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
+        database = FirebaseFirestore.getInstance();
+        //A3
     }
 
     @Override
@@ -171,59 +176,72 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
             return;
         }
 
+        //Log.d(TAG, "in registration");
         progressBar.setVisibility(View.VISIBLE);
         //Upload info to firebase
         mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(task -> {
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        Log.d(TAG, "in registration " + email);
+                        if (task.isSuccessful()) {
+                            uid = mAuth.getCurrentUser().getUid();
+                            Log.d(TAG, "Register for user ->" + uid);
 
-                    if(task.isSuccessful()) {
+                            Log.d(TAG, "createUserWithEmail:success");
+                            user user = new user(userName, email, bio, uid); //create new object for new user
 
-                        String uid =  mAuth.getCurrentUser().getUid();
 
-                        Log.d(TAG, "createUserWithEmail:success");
-                        user user = new user(userName, email, bio, uid); //create new object for new user
+                            Map<String, Object> hashUser = new HashMap<>();
+                            hashUser.put("userName", user.userName);
+                            hashUser.put("email", user.email);
+                            hashUser.put("bio", user.bio);
+                            hashUser.put("displayPicPath", "pics/" + user.displayPicPath);
 
-                        Map<String, Object> hashUser = new HashMap<>();
-                        hashUser.put("userName", user.userName);
-                        hashUser.put("email", user.email);
-                        hashUser.put("bio", user.bio);
-                        hashUser.put("displayPicPath", "pics/" + user.displayPicPath);
+                            //FirebaseDatabase database = FirebaseDatabase.getInstance(); //get Firebase database
 
-                        //FirebaseDatabase database = FirebaseDatabase.getInstance(); //get Firebase database
+                            //Store users value into its FirebaseDatabase object
+                            FirebaseFirestore.getInstance().collection("users")
+                                    .document(uid)
+                                    .set(hashUser)
+                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if (task.isSuccessful()) {
+                                                // Prompt message to tell user whether registration is successful or not.
+                                                Log.d(TAG, "Try to save user info to firebase");
+                                                mAuth.getCurrentUser().sendEmailVerification();
+                                                Toast.makeText(Registration.this, "User registered successful! Verification sent to your email", Toast.LENGTH_LONG).show();
+                                                try {
+                                                    Thread.sleep(500);
+                                                } catch (InterruptedException e) {
+                                                    e.printStackTrace();
+                                                }
+                                                // Upload display photo to Firebase Storage
+                                                handleUploadPhoto(bitmap);
 
-                        //Store users value into its FirebaseDatabase object
-                        FirebaseFirestore.getInstance().collection("users")
-                                .document(uid)
-                                .set(hashUser)
-                                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<Void> task) {
-                                        if (task.isSuccessful()) {
-                                            // Prompt message to tell user whether registration is successful or not.
-
-                                            mAuth.getCurrentUser().sendEmailVerification();
-                                            Toast.makeText(Registration.this, "User registered successful! Verification sent to your email", Toast.LENGTH_LONG).show();
-                                            try {
-                                                Thread.sleep(500);
-                                            } catch (InterruptedException e) {
-                                                e.printStackTrace();
+                                                try {
+                                                    Thread.sleep(1500);
+                                                } catch (InterruptedException e) {
+                                                    e.printStackTrace();
+                                                }
+                                                //Redirect to Profile Page and display user profile photo
+                                                startActivity(new Intent(Registration.this, ProfileActivity.class).putExtra("bitmap", bitmap));
+                                            } else {
+                                                Toast.makeText(Registration.this, "Username already exist. Please try again.", Toast.LENGTH_LONG).show();
                                             }
-                                            // Upload display photo to Firebase Storage
-                                            handleUploadPhoto(bitmap);
-                                            //Redirect to Profile Page and display user profile photo
-                                            startActivity(new Intent(Registration.this, ProfileActivity.class).putExtra("bitmap",bitmap));
-                                        } else {
-                                            Toast.makeText(Registration.this, "Username already exist. Please try again.", Toast.LENGTH_LONG).show();
+                                            progressBar.setVisibility(View.GONE);
                                         }
-                                        progressBar.setVisibility(View.GONE);
-                                    }
-                                });
-                    } else {
-                        Toast.makeText(Registration.this, "Failed to register. Please try again Later", Toast.LENGTH_LONG).show();
-                        progressBar.setVisibility(View.GONE);
+                                    });
+                        } else {
+                            Toast.makeText(Registration.this, "Failed to register. Please try again Later", Toast.LENGTH_LONG).show();
+                            Log.e(TAG, "Failed Register");
+                            progressBar.setVisibility(View.GONE);
+                        }
                     }
                 });
     }
+
 
     // Open camera and capture image
     public void takePhoto() {
@@ -250,7 +268,7 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
     private void handleUploadPhoto(Bitmap bitmap) {
         ByteArrayOutputStream thumbnail = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, thumbnail);
-
+        Log.d(TAG,"Start to upload profile photo");
 
         //save photo in the path
         if (mAuth.getCurrentUser() != null) {
@@ -279,45 +297,41 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
     }
     //get uploaded photo uri
     private void getThumbnailUrl(StorageReference reference) {
+        Log.d(TAG,"Start to download profile photo url");
         reference.getDownloadUrl()
                 .addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
                         Log.d(TAG, "onSuccess: " + uri);
-                        //setUserProfileUrl(uri);
+                        setUserProfileUrl(uri);
+                        Log.d(TAG, "proceed to set profile url ");
+                    }
+                });
+
+    }
+
+    private void setUserProfileUrl(Uri uri){
+        String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        String profileRef = uri.toString();
+
+        Map<String, Object> userUpdate = new HashMap<>();
+        userUpdate.put("profileRef", profileRef);
+
+        Log.d(TAG, "set profile URl with  => " + profileRef);
+
+        database.collection("users").document(userId)
+                .set(userUpdate, SetOptions.merge())
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d(TAG, userId + "DocumentSnapshot successfully written!");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w(TAG, "Error writing document", e);
                     }
                 });
     }
-
-//    private void setUserProfileUrl(Uri uri) {
-//        UserProfileChangeRequest request = new UserProfileChangeRequest.Builder()
-//                .setPhotoUri(uri)
-//                .build();
-//
-//        mAuth.getCurrentUser().updateProfile(request)
-//                .addOnSuccessListener(new OnSuccessListener<Void>() {
-//                    @Override
-//                    public void onSuccess(Void aVoid) {
-//                        Toast.makeText(Registration.this, "Photo upload Successful...", Toast.LENGTH_LONG).show();
-//                        mAuth.getCurrentUser().getPhotoUrl().toString();
-//                        user user = new user(uri); //create new object for new user
-//
-//                        Map<String, Object> hashUser = new HashMap<>();
-//                        hashUser.put("userName", user.userName);
-//                        hashUser.put("email", user.email);
-//                        hashUser.put("bio", user.bio);
-//                        hashUser.put("displayPicPath", user.displayPicPath);
-//
-//                        FirebaseFirestore.getInstance().collection("users")
-//                                .document(uid)
-//                                .set(hashUser)
-//                    }
-//                })
-//                .addOnFailureListener(new OnFailureListener() {
-//                    @Override
-//                    public void onFailure(@NonNull Exception e) {
-//                        Toast.makeText(Registration.this, "Profile photo failed...", Toast.LENGTH_LONG).show();
-//                    }
-//                });
-//    }
 }

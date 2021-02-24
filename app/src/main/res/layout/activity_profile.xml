@@ -98,6 +98,8 @@
             android:orientation="horizontal"
             android:gravity="bottom">
 
+
+
             <Button
                 android:id="@+id/addImage"
                 android:layout_width="60dp"
@@ -117,6 +119,19 @@
                 app:icon="@android:drawable/ic_lock_power_off"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <Switch
+                android:id="@+id/switchButton"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_marginLeft="10dp"
+                android:checked="false"
+                android:switchMinWidth="56dp"
+                android:text="Global Feed: "
+                android:textOff="OFF"
+                android:textOn="ON"
+                android:textSize="15sp" />
+
         </RelativeLayout>
 
     </RelativeLayout>

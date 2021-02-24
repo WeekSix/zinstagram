@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="default_web_client_id" translatable="false">993913750410-4qvn0oe9kff5r6h5sbl57m12vghij7hq.apps.googleusercontent.com</string>
-    <string name="gcm_defaultSenderId" translatable="false">993913750410</string>
-    <string name="google_api_key" translatable="false">AIzaSyCUUjn1AaQul2LZrNNiZjm1BL9K2IMCzTE</string>
-    <string name="google_app_id" translatable="false">1:993913750410:android:292e4defc22faa66717e73</string>
-    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCUUjn1AaQul2LZrNNiZjm1BL9K2IMCzTE</string>
-    <string name="google_storage_bucket" translatable="false">zinstagram-79519.appspot.com</string>
-    <string name="project_id" translatable="false">zinstagram-79519</string>
+    <string name="default_web_client_id" translatable="false">386220420844-mi1rj81hhaeet8dp7bbidtc318te8e5l.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">386220420844</string>
+    <string name="google_api_key" translatable="false">AIzaSyDZg9xMeME8qiDxuRrjM2LVYqj0nSQnvKk</string>
+    <string name="google_app_id" translatable="false">1:386220420844:android:07e403ba6b680a4b257fc9</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDZg9xMeME8qiDxuRrjM2LVYqj0nSQnvKk</string>
+    <string name="google_storage_bucket" translatable="false">zinstagram-99fdd.appspot.com</string>
+    <string name="project_id" translatable="false">zinstagram-99fdd</string>
 </resources>

@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "993913750410",
-    "project_id": "zinstagram-79519",
-    "storage_bucket": "zinstagram-79519.appspot.com"
+    "project_number": "386220420844",
+    "project_id": "zinstagram-99fdd",
+    "storage_bucket": "zinstagram-99fdd.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:993913750410:android:292e4defc22faa66717e73",
+        "mobilesdk_app_id": "1:386220420844:android:07e403ba6b680a4b257fc9",
         "android_client_info": {
           "package_name": "com.example.zinstagram"
         }
       },
       "oauth_client": [
         {
-          "client_id": "993913750410-4qvn0oe9kff5r6h5sbl57m12vghij7hq.apps.googleusercontent.com",
+          "client_id": "386220420844-mi1rj81hhaeet8dp7bbidtc318te8e5l.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCUUjn1AaQul2LZrNNiZjm1BL9K2IMCE"
+          "current_key": "AIzaSyDZg9xMeME8qiDxuRrjM2LVYqj0nSQnvKk"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "993913750410-4qvn0oe9kff5r6h5sbl57m12vghij7hq.apps.googleusercontent.com",
+              "client_id": "386220420844-mi1rj81hhaeet8dp7bbidtc318te8e5l.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
